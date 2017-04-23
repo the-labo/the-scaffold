@@ -34,8 +34,9 @@ class ~~~~package_name@pascalcase~~~~ extends React.PureComponent {
    * @returns {Object} Style object
    */
   static styles (options = {}) {
+    const { theme } = TheStyle
     let {
-      dominant = TheStyle.DOMINANT_COLOR
+      dominant = theme.DOMINANT_COLOR
     } = options
     return {
       root: {}

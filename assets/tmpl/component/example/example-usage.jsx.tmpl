@@ -3,12 +3,13 @@
 import React from 'react'
 import ~~~~package_name@pascalcase~~~~ from '~~~~package_name~~~~'
 
+const ~~~~package_name@pascalcase~~~~Styles = ~~~~package_name@pascalcase~~~~.styles({})
+
 class ExampleComponent extends React.PureComponent {
   render () {
-    let styles = ~~~~package_name@pascalcase~~~~.styles({})
     return (
       <~~~~package_name@pascalcase~~~~ id='my-component'
-                        styles={styles}
+                        styles={ ~~~~package_name@pascalcase~~~~Styles }
       />
     )
   }
