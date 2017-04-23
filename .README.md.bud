@@ -18,7 +18,9 @@ module.exports = readmeMdBud({
   },
   overview: 'doc/overview.md',
   links: require('./doc/links'),
-  vars: {}
+  vars: {
+    tmpls: require('./lib/tmpls')
+  }
 })
 
 if (!module.parent) {

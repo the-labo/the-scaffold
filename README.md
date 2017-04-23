@@ -94,6 +94,46 @@ theScaffold(
 
 <!-- Section from "doc/guides/02.Usage.md.hbs" End -->
 
+<!-- Section from "doc/guides/03.CLI.md.hbs" Start -->
+
+<a name="section-doc-guides-03-c-l-i-md"></a>
+
+CLI Usage
+---------
+
+Install as a global module
+
+
+```bash
+$ npm install the-scaffold -g
+```
+
+Then,
+
+```bash
+
+# Generate task project
+the-scaffold component "my-projects/my-custom-component"
+
+```
+
+
+<!-- Section from "doc/guides/03.CLI.md.hbs" End -->
+
+<!-- Section from "doc/guides/04.Templates.md.hbs" Start -->
+
+<a name="section-doc-guides-04-templates-md"></a>
+
+Types
+---------
+
+Available template types
+
++ [component](assets/tmpl/component)
+
+
+<!-- Section from "doc/guides/04.Templates.md.hbs" End -->
+
 
 <!-- Sections Start -->
 
@@ -114,6 +154,8 @@ This software is released under the [MIT License](https://github.com/the-labo/th
 Links
 ------
 
++ [THE Labo][t_h_e_labo_url]
 
+[t_h_e_labo_url]: https://github.com/the-labo
 
 <!-- Links End -->
