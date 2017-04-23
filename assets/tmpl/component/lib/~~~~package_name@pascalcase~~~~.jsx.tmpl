@@ -11,30 +11,42 @@ class ~~~~package_name@pascalcase~~~~ extends React.PureComponent {
   render () {
     const s = this
     const { props } = s
-    let { id, className, style } = props
+    let { id, className, styles } = props
     return (
       <div className={ classnames('~~~~package_name~~~~', className) }
-           { ...{ id, style }}
+           style={ styles.root }
+           { ...{ id }}
       >
       </div>
     )
   }
 
-  static get style () {
-    return {}
+  /**
+   * Define style
+   * @param [options={}] options - Optional settings
+   * @returns {Object} Style object
+   */
+  static styles (options = {}) {
+    return {
+      root: {}
+    }
   }
 }
 
 ~~~~package_name@pascalcase~~~~.propTypes = {
   /** CSS class name */
   className: PropTypes.string,
-  /** Style object */
-  style: PropTypes.object,
+  /** Style objects */
+  styles: PropTypes.object,
   /** DOM Id */
   id: PropTypes.string
 }
 
-~~~~package_name@pascalcase~~~~.defaultProps = {}
+~~~~package_name@pascalcase~~~~.defaultProps = {
+  className: null,
+  styles: {},
+  id: null
+}
 
 ~~~~package_name@pascalcase~~~~.displayName = '~~~~package_name@pascalcase~~~~'
 

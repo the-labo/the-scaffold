@@ -4,13 +4,18 @@
     "displayName": "~~~~package_name@pascalcase~~~~",
     "methods": [
       {
-        "name": "style",
-        "docblock": null,
+        "name": "styles",
+        "docblock": "Define style\n@param [options={}] options - Optional settings\n@returns {Object} Style object",
         "modifiers": [
           "static"
         ],
-        "params": [],
-        "returns": null
+        "params": [
+          {
+            "name": "options"
+          }
+        ],
+        "returns": null,
+        "description": "Define style"
       }
     ],
     "props": {
@@ -19,21 +24,33 @@
           "name": "string"
         },
         "required": false,
-        "description": "CSS class name"
+        "description": "CSS class name",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
       },
-      "style": {
+      "styles": {
         "type": {
           "name": "object"
         },
         "required": false,
-        "description": "Style object"
+        "description": "Style objects",
+        "defaultValue": {
+          "value": "{}",
+          "computed": false
+        }
       },
       "id": {
         "type": {
           "name": "string"
         },
         "required": false,
-        "description": "DOM Id"
+        "description": "DOM Id",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
       }
     }
   }
