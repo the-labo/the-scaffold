@@ -1,0 +1,41 @@
+'use strict'
+
+import React from 'react'
+import PropTypes from 'prop-types'
+import classnames from 'classnames'
+
+/**
+ * ~~~~package_name@pascalcase~~~~
+ */
+class ~~~~package_name@pascalcase~~~~ extends React.PureComponent {
+  render () {
+    const s = this
+    const { props } = s
+    let { id, className, style } = props
+    return (
+      <div className={ classnames('~~~~package_name~~~~', className) }
+           { ...{ id, style }}
+      >
+      </div>
+    )
+  }
+
+  static get style () {
+    return {}
+  }
+}
+
+~~~~package_name@pascalcase~~~~.propTypes = {
+  /** CSS class name */
+  className: PropTypes.string,
+  /** Style object */
+  style: PropTypes.object,
+  /** DOM Id */
+  id: PropTypes.string
+}
+
+~~~~package_name@pascalcase~~~~.defaultProps = {}
+
+~~~~package_name@pascalcase~~~~.displayName = '~~~~package_name@pascalcase~~~~'
+
+export default ~~~~package_name@pascalcase~~~~

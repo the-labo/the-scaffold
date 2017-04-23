@@ -1,0 +1,16 @@
+Components
+-----------
+
+{{#each vars.signature}}
+### {{displayName}}
+
+{{{description}}}
+
+**Props**
+
+| Name | Type | Description | Required |
+| --- | --- | ---- | ---- |
+{{#each props}}
+| `{{{@key}}}` | {{{type.name}}} | {{{description}}} | {{{required}}} |
+{{/each}}
+{{/each}}

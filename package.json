@@ -1,0 +1,50 @@
+{
+  "name": "the-scaffold",
+  "version": "1.0.0",
+  "description": "Scaffold for the-projects",
+  "main": "lib",
+  "bin": {
+    "the-scaffold": "bin/the-scaffold"
+  },
+  "scripts": {
+    "test": "node ./ci/test.js",
+    "prepare": "node ./ci/build.js && node ./ci/tmplify.js"
+  },
+  "repository": "the-labo/the-scaffold",
+  "keywords": [
+    "the"
+  ],
+  "author": {
+    "name": "Taka Okunishi",
+    "email": "okunishinishi@gmail.com",
+    "url": "http://okunishitaka.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/the-labo/the-scaffold/issues"
+  },
+  "homepage": "https://github.com/the-labo/the-scaffold#readme",
+  "dependencies": {
+    "askconfig": "^3.0.5",
+    "co": "^4.6.0",
+    "commander": "^2.9.0",
+    "gitconfig": "^2.0.3",
+    "tmplconv": "^3.2.1"
+  },
+  "devDependencies": {
+    "amocha": "^2.0.0",
+    "ape-formatting": "^1.0.2",
+    "ape-releasing": "^4.0.4",
+    "ape-tasking": "^4.0.9",
+    "ape-tmpl": "^5.0.20",
+    "ape-updating": "^4.1.0",
+    "coz": "^6.0.20",
+    "filemode": "^2.0.3",
+    "injectmock": "^2.0.0",
+    "the-demo-component": "^1.0.1"
+  },
+  "engines": {
+    "node": ">=6",
+    "npm": ">=4"
+  }
+}
