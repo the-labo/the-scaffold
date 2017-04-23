@@ -5,11 +5,11 @@ import ~~~~package_name@pascalcase~~~~ from '~~~~package_name~~~~'
 
 class ExampleComponent extends React.PureComponent {
   render () {
-    let style = ~~~~package_name@pascalcase~~~~.style({})
+    let styles = ~~~~package_name@pascalcase~~~~.styles({})
     return (
-      <div>
-        <~~~~package_name@pascalcase~~~~ style={style} />
-      </div>
+      <~~~~package_name@pascalcase~~~~ id='my-component'
+                        styles={styles}
+      />
     )
   }
 }
