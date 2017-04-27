@@ -82,6 +82,7 @@ apeTasking.runTasks('tmplify', [
           homepage: pkg.homepage,
           dependencies: pkg.dependencies,
           devDependencies: pkg.devDependencies,
+          peerDependencies: pkg.peerDependencies,
           engines: pkg.engines,
           publishConfig: pkg.publishConfig
         }
