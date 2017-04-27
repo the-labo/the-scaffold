@@ -3,7 +3,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
-import TheStyle from 'the-style'
+import ~~~~package_name@pascalcase~~~~Style from './~~~~package_name@pascalcase~~~~Style'
+import { htmlAttributesFor } from 'the-component-util'
 
 /**
  * ~~~~package_description~~~~
@@ -13,51 +14,24 @@ class ~~~~package_name@pascalcase~~~~ extends React.PureComponent {
     const s = this
     const { props } = s
     let {
-      id,
       className,
-      styles,
       children
     } = props
     return (
-      <div className={ classnames('~~~~package_name~~~~', className) }
-           style={ styles.root }
-           { ...{ id }}
+      <div { ...htmlAttributesFor(props, { except: [ 'className' ] }) }
+           className={ classnames('~~~~package_name~~~~', className) }
       >
         { children }
       </div>
     )
   }
-
-  /**
-   * Define style
-   * @param [options={}] options - Optional settings
-   * @returns {Object} Style object
-   */
-  static styles (options = {}) {
-    const { theme } = TheStyle
-    let {
-      dominant = theme.DOMINANT_COLOR
-    } = options
-    return {
-      root: {}
-    }
-  }
 }
 
-~~~~package_name@pascalcase~~~~.propTypes = {
-  /** CSS class name */
-  className: PropTypes.string,
-  /** Style objects */
-  styles: PropTypes.object,
-  /** DOM Id */
-  id: PropTypes.string
-}
+~~~~package_name@pascalcase~~~~.Style = ~~~~package_name@pascalcase~~~~Style
 
-~~~~package_name@pascalcase~~~~.defaultProps = {
-  className: null,
-  styles: ~~~~package_name@pascalcase~~~~.styles({}),
-  id: null
-}
+~~~~package_name@pascalcase~~~~.propTypes = {}
+
+~~~~package_name@pascalcase~~~~.defaultProps = {}
 
 ~~~~package_name@pascalcase~~~~.displayName = '~~~~package_name@pascalcase~~~~'
 

@@ -1,0 +1,36 @@
+'use strict'
+
+import React from 'react'
+import PropTypes from 'prop-types'
+import classnames from 'classnames'
+import TheStyle from 'the-style'
+
+/** Style for ~~~~package_name@pascalcase~~~~ */
+const ~~~~package_name@pascalcase~~~~Style = ({ id, className, options }) => (
+  <TheStyle { ...{ id } }
+            className={ classnames('te-body-style', className) }
+            styles={ ~~~~package_name@pascalcase~~~~Style.data(options) }
+  />
+)
+
+~~~~package_name@pascalcase~~~~Style.displayName = '~~~~package_name@pascalcase~~~~Style'
+~~~~package_name@pascalcase~~~~Style.propTypes = {
+  /** Style options */
+  options: PropTypes.object
+}
+
+~~~~package_name@pascalcase~~~~Style.defaultProps = {
+  options: {}
+}
+
+~~~~package_name@pascalcase~~~~Style.data = (options) => {
+  const { theme } = TheStyle
+  let {
+    dominantColor = theme.DOMINANT_COLOR
+  } = options
+  return {
+    '.~~~~package_name~~~~': {}
+  }
+}
+
+export default ~~~~package_name@pascalcase~~~~Style
