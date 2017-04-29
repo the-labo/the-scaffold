@@ -1,6 +1,6 @@
 {
   "name": "the-scaffold",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Scaffold for the-projects",
   "main": "lib",
   "bin": {
@@ -43,7 +43,8 @@
     "injectmock": "^2.0.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "the-demo-component": "^2.0.3"
+    "the-demo-component": "^2.0.4",
+    "the-demo-lib": "^1.0.0"
   },
   "engines": {
     "node": ">=6",

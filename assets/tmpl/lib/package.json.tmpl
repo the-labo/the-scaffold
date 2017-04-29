@@ -5,18 +5,17 @@
   "main": "shim",
   "scripts": {
     "build": "the-script-build",
-    "doc": "the-script-doc",
+    "doc": "the-script-jsdoc",
     "prepare": "the-script-build && the-script-doc",
     "release": "the-script-release -y",
     "share": "the-script-share",
-    "test": "the-script-test",
+    "test": "mocha",
     "update": "the-script-update",
     "watch": "the-script-build -w"
   },
   "repository": "~~~~github_repository~~~~",
   "keywords": [
-    "the",
-    "react-component"
+    "the"
   ],
   "author": {
     "name": "~~~~author_name~~~~",
@@ -28,28 +27,15 @@
     "url": "https://github.com/~~~~github_repository~~~~/issues"
   },
   "homepage": "https://github.com/~~~~github_repository~~~~#readme",
-  "dependencies": {
-    "classnames": "^2.2.5",
-    "prop-types": "^15.5.8",
-    "the-component-util": "^1.0.5",
-    "the-style": "^1.2.2"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "react-router-dom": "^4.1.1",
-    "the-component-demo": "^2.0.10",
+    "mocha": "^3.3.0",
     "the-script-build": "^1.3.4",
-    "the-script-doc": "^1.0.1",
+    "the-script-jsdoc": "^1.0.3",
     "the-script-release": "^1.0.6",
     "the-script-share": "^1.0.5",
-    "the-script-test": "^1.0.1",
     "the-script-update": "^1.0.0",
-    "the-templates": "^1.0.5"
-  },
-  "peerDependencies": {
-    "react": ">=15",
-    "react-dom": ">=15"
+    "the-templates": "^1.0.7"
   },
   "engines": {
     "node": ">=6",

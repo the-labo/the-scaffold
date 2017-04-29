@@ -75,17 +75,16 @@ Usage
 'use strict'
 
 import React from 'react'
-import { ~~~~package_name@pascalcase~~~~, ~~~~package_name@pascalcase~~~~Style } from '~~~~package_name~~~~'
+import ~~~~package_name@pascalcase~~~~ from '~~~~package_name~~~~'
+
+const ~~~~package_name@pascalcase~~~~Styles = ~~~~package_name@pascalcase~~~~.styles({})
 
 class ExampleComponent extends React.PureComponent {
   render () {
     return (
-      <div>
-        <~~~~package_name@pascalcase~~~~Style/>
-        <~~~~package_name@pascalcase~~~~ id='my-component'>
-        </~~~~package_name@pascalcase~~~~>
-      </div>
-
+      <~~~~package_name@pascalcase~~~~ id='my-component'
+                        styles={ ~~~~package_name@pascalcase~~~~Styles }
+      />
     )
   }
 }
@@ -104,20 +103,15 @@ export default ExampleComponent
 Components
 -----------
 
-### ~~~~package_name@pascalcase~~~~
-
-~~~~package_description~~~~
+### 
 
 
-### ~~~~package_name@pascalcase~~~~Style
 
-Style for ~~~~package_name@pascalcase~~~~
 
-**Props**
+### 
 
-| Name | Type | Description | Default |
-| --- | --- | ---- | ---- |
-| `options` | object  | Style options | `{}` |
+
+
 
 
 

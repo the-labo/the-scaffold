@@ -24,9 +24,9 @@ const ~~~~package_name@pascalcase~~~~Style = ({ id, className, options }) => (
 }
 
 ~~~~package_name@pascalcase~~~~Style.data = (options) => {
-  const { theme } = TheStyle
+  const { ThemeValues } = TheStyle
   let {
-    dominantColor = theme.DOMINANT_COLOR
+    dominantColor = ThemeValues.dominantColor
   } = options
   return {
     '.~~~~package_name~~~~': {}

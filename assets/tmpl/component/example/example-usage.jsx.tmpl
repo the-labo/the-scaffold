@@ -1,16 +1,17 @@
 'use strict'
 
 import React from 'react'
-import ~~~~package_name@pascalcase~~~~ from '~~~~package_name~~~~'
-
-const ~~~~package_name@pascalcase~~~~Styles = ~~~~package_name@pascalcase~~~~.styles({})
+import { ~~~~package_name@pascalcase~~~~, ~~~~package_name@pascalcase~~~~Style } from '~~~~package_name~~~~'
 
 class ExampleComponent extends React.PureComponent {
   render () {
     return (
-      <~~~~package_name@pascalcase~~~~ id='my-component'
-                        styles={ ~~~~package_name@pascalcase~~~~Styles }
-      />
+      <div>
+        <~~~~package_name@pascalcase~~~~Style/>
+        <~~~~package_name@pascalcase~~~~ id='my-component'>
+        </~~~~package_name@pascalcase~~~~>
+      </div>
+
     )
   }
 }

@@ -1,3 +1,4 @@
 {
-  "component": "assets/tmpl/component"
+  "component": "assets/tmpl/component",
+  "lib": "assets/tmpl/lib"
 }

@@ -1,3 +1,4 @@
 {
-  "component": "the-demo-component"
+  "component": "the-demo-component",
+  "lib": "the-demo-lib"
 }
