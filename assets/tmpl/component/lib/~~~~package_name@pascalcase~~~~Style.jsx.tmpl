@@ -4,6 +4,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import TheStyle from 'the-style'
+import { asStyleData } from 'the-component-util'
 
 /** Style for ~~~~package_name@pascalcase~~~~ */
 const ~~~~package_name@pascalcase~~~~Style = ({ id, className, options }) => (
@@ -28,9 +29,9 @@ const ~~~~package_name@pascalcase~~~~Style = ({ id, className, options }) => (
   let {
     dominantColor = ThemeValues.dominantColor
   } = options
-  return {
-    '.~~~~package_name~~~~': {}
-  }
+  return asStyleData('.~~~~package_name~~~~', {
+    '': {}
+  })
 }
 
 export default ~~~~package_name@pascalcase~~~~Style
