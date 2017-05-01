@@ -23,8 +23,12 @@ module.exports = readmeMdBud({
     signature: signature(
       require('./jsdoc.json'),
       {
-        classNames: [],
-        functionNames: []
+        classNames: [
+          '~~~~package_name@pascalcase~~~~'
+        ],
+        functionNames: [
+          'create'
+        ]
       }
     ),
     apiPath: './doc/api/api.md'

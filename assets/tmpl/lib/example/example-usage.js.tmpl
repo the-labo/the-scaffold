@@ -1,18 +1,9 @@
 'use strict'
 
-import React from 'react'
-import ~~~~package_name@pascalcase~~~~ from '~~~~package_name~~~~'
+const  ~~~~package_name@camelcase~~~~ = require('~~~~package_name~~~~')
 
-const ~~~~package_name@pascalcase~~~~Styles = ~~~~package_name@pascalcase~~~~.styles({})
+async function tryExample() {
 
-class ExampleComponent extends React.PureComponent {
-  render () {
-    return (
-      <~~~~package_name@pascalcase~~~~ id='my-component'
-                        styles={ ~~~~package_name@pascalcase~~~~Styles }
-      />
-    )
-  }
 }
 
-export default ExampleComponent
+tryExample().catch((err) => console.error(err))
