@@ -18,11 +18,11 @@ class ~~~~package_name@pascalcase~~~~ extends React.PureComponent {
       children
     } = props
     return (
-      <div { ...htmlAttributesFor(props, { except: [ 'className' ] }) }
-           { ...eventHandlersFor(props, { except: [] })}
-           className={ classnames('~~~~package_name~~~~', className) }
+      <div {...htmlAttributesFor(props, { except: [ 'className' ] })}
+           {...eventHandlersFor(props, { except: [] })}
+           className={classnames('~~~~package_name~~~~', className)}
       >
-        { children }
+        {children}
       </div>
     )
   }
