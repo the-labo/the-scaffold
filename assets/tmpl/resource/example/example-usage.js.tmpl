@@ -1,0 +1,19 @@
+'use strict'
+
+const theDb = require('the-db')
+const { ~~~~package_name@pascalcase~~~~ } = require('~~~~package_name~~~~')
+
+async function tryExample () {
+  let db = theDb({
+    dialect: 'memory',
+    resources: {
+      Example: class ExampleResource extends ~~~~package_name@pascalcase~~~~ {
+        static get nameString () {
+          return 'Example'
+        }
+      }
+    }
+  })
+}
+
+tryExample().catch((err) => console.error(err))
