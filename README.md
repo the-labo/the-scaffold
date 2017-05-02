@@ -131,6 +131,7 @@ Available template types
 
 + [component](assets/tmpl/component)
 + [lib](assets/tmpl/lib)
++ [resource](assets/tmpl/resource)
 
 
 <!-- Section from "doc/guides/04.Templates.md.hbs" End -->
