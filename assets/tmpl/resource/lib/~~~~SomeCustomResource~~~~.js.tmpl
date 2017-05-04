@@ -1,0 +1,21 @@
+/**
+ * ~~~~package_description~~~~
+ * @augments Resource
+ * @class ~~~~SomeCustomResource~~~~
+ */
+'use strict'
+
+const { Resource, DataTypes } = require('the-db')
+
+/** @lends ~~~~SomeCustomResource~~~~ */
+class ~~~~SomeCustomResource~~~~ extends Resource {
+  static get policy () {
+    return {}
+  }
+
+  static get nameString () {
+    return '~~~~SomeCustomResource~~~~'
+  }
+}
+
+module.exports = ~~~~SomeCustomResource~~~~

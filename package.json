@@ -1,6 +1,6 @@
 {
   "name": "the-scaffold",
-  "version": "1.0.25",
+  "version": "1.0.26",
   "description": "Scaffold for the-projects",
   "main": "lib",
   "bin": {

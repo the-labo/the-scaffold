@@ -1,13 +1,13 @@
 'use strict'
 
 const theDb = require('the-db')
-const { SomeResource } = require('~~~~package_name~~~~')
+const { ~~~~SomeCustomResource~~~~ } = require('~~~~package_name~~~~')
 
 async function tryExample () {
   let db = theDb({
     dialect: 'memory',
     resources: {
-      Example: class ExampleResource extends SomeResource {
+      Example: class ExampleResource extends ~~~~SomeCustomResource~~~~ {
         static get nameString () {
           return 'Example'
         }
