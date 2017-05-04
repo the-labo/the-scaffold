@@ -1,6 +1,6 @@
 {
   "name": "the-scaffold",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "description": "Scaffold for the-projects",
   "main": "lib",
   "bin": {
@@ -37,13 +37,13 @@
     "ape-releasing": "^4.0.4",
     "ape-tasking": "^4.0.9",
     "ape-tmpl": "^5.0.20",
-    "ape-updating": "file:///Users/okunishitaka/Projects/ape-projects/ape-updating",
+    "ape-updating": "^4.1.1",
     "coz": "^6.0.20",
     "filemode": "^2.0.0",
     "injectmock": "^2.0.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "the-db": "^1.0.4",
+    "the-db": "^1.0.5",
     "the-demo-component": "github:the-labo/the-demo-component",
     "the-demo-lib": "github:the-labo/the-demo-lib",
     "the-demo-resource": "github:the-labo/the-demo-resource"
