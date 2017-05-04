@@ -4,13 +4,13 @@
  */
 'use strict'
 
-const ~~~~package_name@pascalcase~~~~ = require('./~~~~package_name@pascalcase~~~~')
+const SomeResource = require('./SomeResource')
 const create = require('./create')
 
 const lib = create.bind(this)
 
 Object.assign(lib, {
-  ~~~~package_name@pascalcase~~~~,
+  SomeResource,
   create
 })
 

@@ -1,16 +1,16 @@
 /**
- * Create a ~~~~package_name@pascalcase~~~~ instance
+ * Create a SomeResource instance
  * @function create
  * @param {...*} args
- * @returns {~~~~package_name@pascalcase~~~~}
+ * @returns {SomeResource}
  */
 'use strict'
 
-const ~~~~package_name@pascalcase~~~~ = require('./~~~~package_name@pascalcase~~~~')
+const SomeResource = require('./SomeResource')
 
 /** @lends create */
 function create (...args) {
-  return new ~~~~package_name@pascalcase~~~~(...args)
+  return new SomeResource(...args)
 }
 
 module.exports = create

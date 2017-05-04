@@ -1,0 +1,34 @@
+/**
+ * Test for SomeResource.
+ * Runs with mocha.
+ */
+'use strict'
+
+const { TheDb } = require('the-db')
+const SomeResource = require('../lib/SomeResource')
+const { ok, equal } = require('assert')
+
+describe('~~~~package_name~~~~', () => {
+  before(() => {
+  })
+
+  after(() => {
+  })
+
+  it('Do test', async () => {
+    ok(SomeResource)
+
+    let db = new TheDb({
+      dialect: 'memory',
+      resources: {
+        SomeResource: SomeResource
+      }
+    })
+
+    let resource = db.resource('SomeResource')
+    let entity01 = await resource.create({})
+    ok(entity01)
+  })
+})
+
+/* global describe, before, after, it */
