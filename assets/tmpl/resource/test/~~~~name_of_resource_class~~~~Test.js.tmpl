@@ -1,11 +1,11 @@
 /**
- * Test for ~~~~SomeCustomResource~~~~.
+ * Test for ~~~~name_of_resource_class~~~~.
  * Runs with mocha.
  */
 'use strict'
 
 const { TheDb } = require('the-db')
-const ~~~~SomeCustomResource~~~~ = require('../lib/~~~~SomeCustomResource~~~~')
+const ~~~~name_of_resource_class~~~~ = require('../lib/~~~~name_of_resource_class~~~~')
 const { ok, equal } = require('assert')
 
 describe('~~~~package_name~~~~', () => {
@@ -16,16 +16,16 @@ describe('~~~~package_name~~~~', () => {
   })
 
   it('Do test', async () => {
-    ok(~~~~SomeCustomResource~~~~)
+    ok(~~~~name_of_resource_class~~~~)
 
     let db = new TheDb({
       dialect: 'memory',
       resources: {
-        ~~~~SomeCustomResource~~~~: ~~~~SomeCustomResource~~~~
+        ~~~~name_of_resource_class~~~~: ~~~~name_of_resource_class~~~~
       }
     })
 
-    let resource = db.resource('~~~~SomeCustomResource~~~~')
+    let resource = db.resource('~~~~name_of_resource_class~~~~')
     let entity01 = await resource.create({})
     ok(entity01)
   })
