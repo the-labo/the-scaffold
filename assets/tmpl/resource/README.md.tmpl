@@ -78,16 +78,18 @@ const theDb = require('the-db')
 const { ~~~~name_of_resource_class~~~~ } = require('~~~~package_name~~~~')
 
 async function tryExample () {
+
   let db = theDb({
-    dialect: 'memory',
-    resources: {
-      Example: class ExampleResource extends ~~~~name_of_resource_class~~~~ {
-        static get nameString () {
-          return 'Example'
-        }
-      }
-    }
+    dialect: 'memory'
   })
+
+  db.load(class extends ~~~~name_of_resource_class~~~~ {
+
+  }, '~~~~name_of_resource_class~~~~01')
+  let { ~~~~name_of_resource_class~~~~01 } = db.resources
+
+  let entity01 = await ~~~~name_of_resource_class~~~~01.create({ name: 'entity01' })
+  /* ... */
 }
 
 tryExample().catch((err) => console.error(err))
@@ -104,7 +106,7 @@ tryExample().catch((err) => console.error(err))
 API Guide
 -----
 
-+ [~~~~package_name~~~~@1.0.3](./doc/api/api.md)
++ [~~~~package_name~~~~@2.0.1](./doc/api/api.md)
   + [create(args)](./doc/api/api.md#~~~~package_name~~~~-function-create)
   + [~~~~name_of_resource_class~~~~](./doc/api/api.md#~~~~name_of_resource_class@spinalcase~~~~-class)
 
