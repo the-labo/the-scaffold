@@ -10,7 +10,7 @@ module.exports = api({
     jsdoc,
     {
       classNames: jsdoc.classes.map(({ name }) => name),
-      functionNames: [ 'create' ]
+      functionNames: jsdoc.functions.map(({ name }) => name),
     }
   )
 })

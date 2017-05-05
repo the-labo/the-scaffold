@@ -1,5 +1,6 @@
 {
   "component": "the-demo-component",
   "lib": "the-demo-lib",
+  "controller": "the-demo-controller",
   "resource": "the-demo-resource"
 }

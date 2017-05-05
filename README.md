@@ -130,6 +130,7 @@ Types
 Available template types
 
 + [component](assets/tmpl/component)
++ [controller](assets/tmpl/controller)
 + [lib](assets/tmpl/lib)
 + [resource](assets/tmpl/resource)
 

@@ -74,22 +74,19 @@ Usage
 ```javascript
 'use strict'
 
-const theDb = require('the-db')
-const { ~~~~name_of_resource_class~~~~ } = require('~~~~package_name~~~~')
+const { ~~~~name_of_controller_class~~~~ } = require('~~~~package_name~~~~')
+const theServer = require('the-server')
 
 async function tryExample () {
 
-  let db = theDb({
-    dialect: 'memory'
-  })
+  let server = theServer({ /*...*/ })
 
-  db.load(class extends ~~~~name_of_resource_class~~~~ {
+  server.register(
+    class extends ~~~~name_of_controller_class~~~~ { /* ... */},
+    'some'
+  )
 
-  }, '~~~~name_of_resource_class~~~~01')
-  let { ~~~~name_of_resource_class~~~~01 } = db.resources
-
-  let entity01 = await ~~~~name_of_resource_class~~~~01.create({ name: 'entity01' })
-  /* ... */
+  server.listen(3000)
 }
 
 tryExample().catch((err) => console.error(err))
@@ -99,41 +96,18 @@ tryExample().catch((err) => console.error(err))
 
 <!-- Section from "doc/guides/02.Usage.md.hbs" End -->
 
-<!-- Section from "doc/guides/11.Policies.md.hbs" Start -->
+<!-- Section from "doc/guides/10.API Guide.md.hbs" Start -->
 
-<a name="section-doc-guides-11-policies-md"></a>
-
-Policies
---------
-
-+ [~~~~name_of_resource_class~~~~ Policy](#policy-~~~~name_of_resource_class~~~~)
-
-<a name="policy-~~~~name_of_resource_class~~~~"/>
-
-### ~~~~name_of_resource_class~~~~ Policy
-
-| Property | Description | Type | Required | Unique |
-| ----- | ----- | --- | --- | --- |
-| `name` |  | "cly:string" |  |  |
-
-
-
-<!-- Section from "doc/guides/11.Policies.md.hbs" End -->
-
-<!-- Section from "doc/guides/20.API Guide.md.hbs" Start -->
-
-<a name="section-doc-guides-20-a-p-i-guide-md"></a>
+<a name="section-doc-guides-10-a-p-i-guide-md"></a>
 
 API Guide
 -----
 
-+ [~~~~package_name~~~~@2.0.4](./doc/api/api.md)
++ [~~~~package_name~~~~@1.0.0](./doc/api/api.md)
   + [create(args)](./doc/api/api.md#~~~~package_name~~~~-function-create)
-  + [~~~~name_of_resource_class~~~~](./doc/api/api.md#~~~~name_of_resource_class@spinalcase~~~~-class)
-  + [~~~~name_of_resource_class~~~~Entity](./doc/api/api.md#~~~~name_of_resource_class@spinalcase~~~~-entity-class)
 
 
-<!-- Section from "doc/guides/20.API Guide.md.hbs" End -->
+<!-- Section from "doc/guides/10.API Guide.md.hbs" End -->
 
 
 <!-- Sections Start -->

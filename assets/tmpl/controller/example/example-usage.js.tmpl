@@ -1,0 +1,18 @@
+'use strict'
+
+const { ~~~~name_of_controller_class~~~~ } = require('~~~~package_name~~~~')
+const theServer = require('the-server')
+
+async function tryExample () {
+
+  let server = theServer({ /*...*/ })
+
+  server.register(
+    class extends ~~~~name_of_controller_class~~~~ { /* ... */},
+    'some'
+  )
+
+  server.listen(3000)
+}
+
+tryExample().catch((err) => console.error(err))
