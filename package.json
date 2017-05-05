@@ -1,6 +1,6 @@
 {
   "name": "the-scaffold",
-  "version": "1.0.30",
+  "version": "1.0.31",
   "description": "Scaffold for the-projects",
   "main": "lib",
   "bin": {
@@ -45,8 +45,8 @@
     "react-dom": "^15.5.4",
     "the-db": "^3.0.0",
     "the-demo-component": "github:the-labo/the-demo-component",
-    "the-demo-lib": "github:the-labo/the-demo-lib",
     "the-demo-controller": "github:the-labo/the-demo-controller",
+    "the-demo-lib": "github:the-labo/the-demo-lib",
     "the-demo-resource": "github:the-labo/the-demo-resource"
   },
   "engines": {

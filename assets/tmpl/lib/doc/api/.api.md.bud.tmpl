@@ -2,14 +2,15 @@
 
 const { api } = require('the-templates')
 const { signature } = require('the-script-jsdoc')
+const jsdoc = require('../../jsdoc.json')
 
 module.exports = api({
   pkg: require('../../package.json'),
   signature: signature(
-    require('../../jsdoc.json'),
+    jsdoc,
     {
-      classNames: [ '~~~~package_name@pascalcase~~~~' ],
-      functionNames: [ 'create' ]
+      classNames: jsdoc.classes.map(({ name }) => name),
+      functionNames: jsdoc.functions.map(({ name }) => name),
     }
   )
 })

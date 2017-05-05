@@ -7,6 +7,7 @@
 const { readmeMdBud } = require('ape-tmpl')
 const pkg = require('./package.json')
 const { signature } = require('the-script-jsdoc')
+const jsdoc = require('./jsdoc.json')
 
 module.exports = readmeMdBud({
   pkg,
@@ -21,7 +22,7 @@ module.exports = readmeMdBud({
   links: require('./doc/links'),
   vars: {
     signature: signature(
-      require('./jsdoc.json'),
+      jsdoc,
       {
         classNames: [
           '~~~~package_name@pascalcase~~~~'
