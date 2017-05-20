@@ -5,6 +5,7 @@
 'use strict'
 
 const ~~~~name_of_controller_class~~~~ = require('../lib/~~~~name_of_controller_class~~~~')
+const theDb = require('the-db')
 const { ok, equal } = require('assert')
 
 describe('~~~~name_of_controller_class@spinalcase~~~~', () => {
@@ -15,7 +16,12 @@ describe('~~~~name_of_controller_class@spinalcase~~~~', () => {
   })
 
   it('Do test', () => {
-    let ctrl = new ~~~~name_of_controller_class~~~~()
+    let db = theDb({ dialect: 'memory' })
+
+    let ctrl = new ~~~~name_of_controller_class~~~~({
+      app: { db },
+      session: {}
+    })
     ok(ctrl)
   })
 })
