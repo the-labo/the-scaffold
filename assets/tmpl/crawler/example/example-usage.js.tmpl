@@ -6,9 +6,10 @@ const { ~~~~name_of_crawler_class~~~~ } = require('~~~~package_name~~~~')
 async function tryExample () {
   const db = theDB({ /* ... */ })
 
-  const resource = db.resource('~~~~name_of_crawler_class~~~~Result')
+  const ~~~~name_of_crawler_class~~~~Result = db.resource('~~~~name_of_crawler_class~~~~Result')
   {
-    let crawler = new ~~~~name_of_crawler_class~~~~(resource)
+    let crawler = new ~~~~name_of_crawler_class~~~~()
+    crawler.addResource(~~~~name_of_crawler_class~~~~Result)
 
     await crawler.run({})
   }
