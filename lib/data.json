@@ -4,5 +4,8 @@
   },
   "controller": {
     "name_of_controller_class": "SomeCtrl"
+  },
+  "crawler": {
+    "name_of_crawler_class": "SomeCrwl"
   }
 }

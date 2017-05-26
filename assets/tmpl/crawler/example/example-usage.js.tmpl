@@ -1,0 +1,17 @@
+'use strict'
+
+const theDB = require('the-db')
+const { ~~~~name_of_crawler_class~~~~ } = require('~~~~package_name~~~~')
+
+async function tryExample () {
+  const db = theDB({ /* ... */ })
+
+  const resource = db.resource('~~~~name_of_crawler_class~~~~Result')
+  {
+    let crawler = new ~~~~name_of_crawler_class~~~~(resource)
+
+    await crawler.run({})
+  }
+}
+
+tryExample().catch((err) => console.error(err))

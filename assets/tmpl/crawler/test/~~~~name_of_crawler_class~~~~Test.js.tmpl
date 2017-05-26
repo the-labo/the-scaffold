@@ -1,0 +1,29 @@
+/**
+ * Test for ~~~~name_of_crawler_class~~~~.
+ * Runs with mocha.
+ */
+'use strict'
+
+const theDB = require('the-db')
+const ~~~~name_of_crawler_class~~~~ = require('../lib/~~~~name_of_crawler_class~~~~')
+const { ok, equal } = require('assert')
+
+describe('~~~~package_name~~~~', () => {
+  before(() => {
+  })
+
+  after(() => {
+  })
+
+  it('Do test', () => {
+    const db = theDB({})
+    const resource = db.resource('~~~~name_of_crawler_class~~~~Result')
+
+    ok(~~~~name_of_crawler_class~~~~)
+
+    let crwl = new ~~~~name_of_crawler_class~~~~(resource)
+    ok(crwl)
+  })
+})
+
+/* global describe, before, after, it */
