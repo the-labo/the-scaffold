@@ -18,7 +18,6 @@ describe('create', () => {
   it('Do test', () => {
     let db = theDB({})
     let created = create()
-    created.addResource(db.resource('hoge'))
     ok(created)
   })
 })

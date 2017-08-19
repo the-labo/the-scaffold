@@ -1,6 +1,6 @@
 {
   "name": "the-scaffold",
-  "version": "1.0.38",
+  "version": "1.0.39",
   "description": "Scaffold for the-projects",
   "main": "lib",
   "bin": {
@@ -37,19 +37,19 @@
     "ape-formatting": "^1.0.2",
     "ape-releasing": "^4.0.4",
     "ape-tasking": "^4.0.9",
-    "ape-tmpl": "^5.0.20",
+    "ape-tmpl": "^6.0.0",
     "ape-updating": "^4.1.1",
     "coz": "^6.0.20",
     "filemode": "^2.0.0",
     "injectmock": "^2.0.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "the-db": "^3.0.13",
-    "the-demo-component": "github:the-labo/the-demo-component",
-    "the-demo-controller": "github:the-labo/the-demo-controller",
-    "the-demo-crawler": "github:the-labo/the-demo-crawler",
-    "the-demo-lib": "github:the-labo/the-demo-lib",
-    "the-demo-resource": "github:the-labo/the-demo-resource"
+    "the-db": "^5.0.5",
+    "the-demo-component": "^2.0.14",
+    "the-demo-controller": "^1.0.2",
+    "the-demo-crawler": "^2.0.3",
+    "the-demo-lib": "^1.1.4",
+    "the-demo-resource": "^2.0.4"
   },
   "engines": {
     "node": ">=6",
