@@ -6,25 +6,25 @@
 
 const theScaffold = require('../lib/the_scaffold.js')
 const assert = require('assert')
-const co = require('co')
+
 
 describe('the-scaffold', function () {
   this.timeout(3000)
 
-  before(() => co(function * () {
+  before(async () => {
 
-  }))
+  })
 
-  after(() => co(function * () {
+  after(async () => {
 
-  }))
+  })
 
-  it('Generate task', () => co(function * () {
-    yield theScaffold('component', `${__dirname}/../tmp/foo/bar-component`, {
+  it('Generate task', async () => {
+    await theScaffold('component', `${__dirname}/../tmp/foo/bar-component`, {
       straight: true,
       force: true
     })
-  }))
+  })
 })
 
 /* global describe, before, after, it */

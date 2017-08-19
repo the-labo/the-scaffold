@@ -130,10 +130,8 @@ Types
 Available template types
 
 + [component](assets/tmpl/component)
-+ [controller](assets/tmpl/controller)
-+ [crawler](assets/tmpl/crawler)
 + [lib](assets/tmpl/lib)
-+ [resource](assets/tmpl/resource)
++ [site](assets/tmpl/site)
 
 
 <!-- Section from "doc/guides/04.Templates.md.hbs" End -->
