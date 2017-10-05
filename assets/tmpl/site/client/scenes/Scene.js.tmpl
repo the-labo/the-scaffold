@@ -13,7 +13,6 @@ class Scene extends TheScene {
       return super.catchEntryError(e)
     } catch (e) {
       switch (e.name) {
-
         case 'NotFoundError': {
           return s.parseAppError(e, {
             defaultMessageKey: 'RESOURCE_NOT_FOUND_ERROR'
@@ -27,6 +26,11 @@ class Scene extends TheScene {
           throw e
       }
     }
+  }
+
+  pushInfoToast (message) {
+    const s = this
+    s.store.toast.info.push(message)
   }
 }
 

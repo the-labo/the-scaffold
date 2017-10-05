@@ -9,8 +9,8 @@ const theSeat = require('the-seat')
 const theSetting = require('the-setting')
 const seat = theSeat()
 const setting = theSetting(`${__dirname}/var/app/setting.json`, {
-  ADMIN_EMAIL: 'admin@~~~~package_name~~~~.com',
-  DOMAIN: '~~~~package_name~~~~.com'
+  APP_ADMIN_EMAIL: 'admin@~~~~package_name~~~~.com',
+  APP_DOMAIN: '~~~~package_name~~~~.com'
 })
 
 const pkg = require('./package.json')

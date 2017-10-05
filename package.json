@@ -1,6 +1,6 @@
 {
   "name": "the-scaffold",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Scaffold for the-projects",
   "main": "lib",
   "bin": {
@@ -25,30 +25,29 @@
   },
   "homepage": "https://github.com/the-labo/the-scaffold#readme",
   "dependencies": {
-    "askconfig": "^3.0.5",
+    "askconfig": "^4.0.0",
     "co": "^4.6.0",
     "commander": "^2.9.0",
-    "filemode": "^2.0.3",
     "gitconfig": "^2.0.3",
     "tmplconv": "^3.2.1"
   },
   "devDependencies": {
-    "amocha": "^2.0.0",
+    "amocha": "^4.0.0",
     "ape-formatting": "^1.0.2",
     "ape-releasing": "^4.0.4",
     "ape-tasking": "^4.0.9",
-    "ape-tmpl": "^6.0.0",
+    "ape-tmpl": "^6.0.2",
     "ape-updating": "^4.1.1",
     "coz": "^6.0.20",
-    "filemode": "^2.0.0",
+    "eslint": "^4.8.0",
     "injectmock": "^2.0.0",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "the-db": "^5.0.5",
-    "the-demo-component": "^2.0.14",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "the-db": "^7.1.12",
+    "the-demo-component": "^3.0.0",
     "the-demo-lib": "^1.1.4",
     "the-demo-resource": "^2.0.4",
-    "the-demo-site": "^5.1.0"
+    "the-demo-site": "^6.0.1"
   },
   "engines": {
     "node": ">=7.6",

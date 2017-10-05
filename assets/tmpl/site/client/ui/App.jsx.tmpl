@@ -5,7 +5,8 @@
 
 import React from 'react'
 import {
-  TheRoot
+  TheRoot,
+  TheCondition
 } from 'the-components'
 
 import Header from './layouts/Header'
@@ -40,7 +41,9 @@ class App extends React.Component {
         <Header {...{synced, user, notices}}/>
         <Toasts/>
         <Main>
-          <Routes/>
+          <TheCondition if={synced}>
+            <Routes {...{user}}/>
+          </TheCondition>
         </Main>
         <Footer/>
       </TheRoot>
@@ -61,8 +64,8 @@ class App extends React.Component {
     const s = this
     const {verifyScene, props} = s
     const notices = {}
-    const {needsVerify, l} = props
-    if (needsVerify) {
+    const {needsVerify, user, l} = props
+    if (user && needsVerify) {
       notices[l('messages.NEEDS_EMAIL_VERIFIED')] = {
         [l('buttons.DO_SEND_VERIFY')]: () => verifyScene.sendVerify()
       }
