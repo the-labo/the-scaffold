@@ -5,75 +5,50 @@
 
 import React from 'react'
 import { TheView, TheDone, TheLead, TheCondition } from 'the-components'
-import { asView, withTitle } from '../../wrappers'
-import { RecoverScene } from '../../../scenes'
-import { RecoverSendForm } from '../../fragments'
+import { asView } from '../../wrappers'
+import { RecoverSendForm } from '../../bounds'
 import styles from './RecoverSendView.pcss'
 
-class RecoverSendView extends React.Component {
-  constructor (props) {
-    super(props)
-    const s = this
-    s.recoverScene = new RecoverScene(props)
-  }
-
-  render () {
-    const s = this
-    const {props, recoverScene} = s
-    const {
-      l,
-      errorMessage,
-      busy,
-      done,
-      values,
-      errors
-    } = props
-    return (
-      <TheView className={styles.self}>
-        <TheView.Header icon={null}
-                        text={l('titles.RECOVER_SEND_TITLE')}
-        />
-        <TheView.Body>
-          <TheCondition if={done}>
-            <TheDone linkTo='/'
-                     linkText={l('buttons.SHOW_TOP_AGAIN')}
-                     message={l('messages.RECOVER_SEND_DONE')}
+function RecoverSendView ({
+                            l,
+                            failure,
+                            done
+                          }) {
+  return (
+    <TheView className={styles.self}>
+      <TheView.Header icon={null}
+                      text={l('titles.RECOVER_SEND_TITLE')}
+      />
+      <TheView.Body>
+        <TheCondition if={done}>
+          <TheDone linkTo='/'
+                   linkText={l('buttons.SHOW_TOP_AGAIN')}
+                   message={l('messages.RECOVER_SEND_DONE')}
+          />
+        </TheCondition>
+        <TheCondition unless={done}>
+          <div>
+            <TheLead text={l('leads.RECOVER_SEND')}
+                     error={failure}
             />
-          </TheCondition>
-          <TheCondition unless={done}>
-            <div>
-              <TheLead text={l('leads.RECOVER_SEND')}
-                       error={errorMessage}
-              />
-              <RecoverSendForm spinning={busy}
-                               {...{values, errors}}
-                               onUpdate={(v) => recoverScene.setSendEntryValues(v)}
-                               onSubmit={() => recoverScene.doSend()}
-              />
-            </div>
-          </TheCondition>
-        </TheView.Body>
-      </TheView>
-    )
-  }
-
-  componentDidMount () {
-    const s = this
-    const {recoverScene} = s
-    recoverScene.prepareRecoverSend()
-  }
-
-  componentWillUnmount () {
-  }
+            <RecoverSendForm/>
+          </div>
+        </TheCondition>
+      </TheView.Body>
+    </TheView>
+  )
 }
 
 export default asView(
-  withTitle(RecoverSendView, ({l}) => l('titles.RECOVER_SEND_TITLE')),
+  RecoverSendView,
   (state) => ({
-    errorMessage: state['recover.send.errorMessage'],
-    busy: state['recover.send.busy'],
-    done: state['recover.send.done'],
-    values: state['recover.send.entry.values'],
-    errors: state['recover.send.entry.errors']
-  })
+    failure: state['recover.send.failure'],
+    done: state['recover.send.done']
+  }),
+  ({recoverSendScene}) => ({
+    onMount: () => recoverSendScene.init()
+  }),
+  {
+    title: ({l}) => l('titles.RECOVER_SEND_TITLE')
+  }
 )

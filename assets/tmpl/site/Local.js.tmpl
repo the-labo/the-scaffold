@@ -10,7 +10,9 @@ const theSetting = require('the-setting')
 const seat = theSeat()
 const setting = theSetting(`${__dirname}/var/app/setting.json`, {
   APP_ADMIN_EMAIL: 'admin@~~~~package_name~~~~.com',
-  APP_DOMAIN: '~~~~package_name~~~~.com'
+  APP_DOMAIN: '~~~~package_name~~~~.com',
+  DUMP_SCHEDULE: '00 00 * * 3',
+  DUMP_ROTATION: 3
 })
 
 const pkg = require('./package.json')
@@ -24,13 +26,16 @@ const containerFor = (name, length = 4) => [
   seat.scope('containers').acquire(name, () => crypto.randomBytes(length).toString('hex'))
 ].join('-')
 
-const processFor = (name, length = 4) => [
+const processFor = (name, kind, length = 4) => [
   name.split('@')[0],
-  seat.scope('processes').acquire(name, () => crypto.randomBytes(length).toString('hex'))
+  seat.scope('processes').acquire(name, () => crypto.randomBytes(length).toString('hex')),
+  kind
 ].join('-')
 
 const Vars = Object.freeze({
   APP_PORT: portFor(`app@${__dirname}`),
+
+  SUPER_ADMIN_PASSWORD: crypto.randomBytes(14).toString('hex'),
 
   MYSQL_PUBLISHED_PORT: portFor(`mysql@${__dirname}`),
   REDIS_PUBLISHED_PORT: portFor(`redis@${__dirname}`),
@@ -40,7 +45,8 @@ const Vars = Object.freeze({
   REDIS_CONTAINER_NAME: containerFor(`${pkg.name}-redis@${__dirname}`),
   NGINX_CONTAINER_NAME: containerFor(`${pkg.name}-nginx@${__dirname}`),
 
-  APP_PROCESS_NAME: processFor(`${pkg.name}-app@${__dirname}`)
+  APP_PROCESS_NAME: processFor(`${pkg.name}@${__dirname}`, 'app'),
+  BACKUP_PROCESS_NAME: processFor(`${pkg.name}@${__dirname}`, 'backup')
 
 })
 

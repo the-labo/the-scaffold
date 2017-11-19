@@ -4,12 +4,14 @@
  */
 'use strict'
 
+const compose = require('./compose')
 const withAdmin = require('./withAdmin')
+const withAuth = require('./withAuth')
 const withDebug = require('./withDebug')
-const withSigned = require('./withSigned')
 
 module.exports = {
+  compose,
   withAdmin,
-  withDebug,
-  withSigned
+  withAuth,
+  withDebug
 }

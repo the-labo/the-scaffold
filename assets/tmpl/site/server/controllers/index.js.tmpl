@@ -4,20 +4,26 @@
  */
 'use strict'
 
-const AdminConfirmCtrl = require('./admin/AdminConfirmCtrl')
-const AdminCtrl = require('./admin/AdminCtrl')
-const AdminUsersCtrl = require('./admin/AdminUsersCtrl')
+const AccountCtrl = require('./AccountCtrl')
+const AdminCtrl = require('./AdminCtrl')
 const AppCtrl = require('./AppCtrl')
+const Ctrl = require('./Ctrl')
+const PasswordCtrl = require('./PasswordCtrl')
+const QuitCtrl = require('./QuitCtrl')
 const RecoverCtrl = require('./RecoverCtrl')
 const SignCtrl = require('./SignCtrl')
+const UserCtrl = require('./UserCtrl')
 const VerifyCtrl = require('./VerifyCtrl')
 
 module.exports = {
-  AdminConfirmCtrl,
+  AccountCtrl,
   AdminCtrl,
-  AdminUsersCtrl,
   AppCtrl,
+  Ctrl,
+  PasswordCtrl,
+  QuitCtrl,
   RecoverCtrl,
   SignCtrl,
+  UserCtrl,
   VerifyCtrl
 }

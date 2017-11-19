@@ -9,7 +9,7 @@ const {STRING, ENTITY, DATE} = DataTypes
 const thePassword = require('the-password')
 const {generateSalt, generatePassword, digest: digestPassword} = thePassword()
 
-const {withUser} = require('../mixins')
+const {withUser} = require('../concerns')
 
 /** @lends SignResource */
 class SignResource extends Resource {
@@ -46,11 +46,16 @@ class SignResource extends Resource {
         minLength: 2,
         default: () => digestPassword(generatePassword(), generateSalt())
       },
-      signinAt: {
+      signUpAt: {
+        description: 'Date of signing up',
+        type: DATE,
+        default: () => new Date()
+      },
+      signInAt: {
         description: 'Last time signed in',
         type: DATE
       },
-      signoutAt: {
+      signOutAt: {
         description: 'Last time signed out',
         type: DATE
       },

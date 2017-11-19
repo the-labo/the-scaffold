@@ -39,15 +39,15 @@
     "ape-tmpl": "^6.0.2",
     "ape-updating": "^4.1.1",
     "coz": "^6.0.20",
-    "eslint": "^4.8.0",
+    "eslint": "^4.11.0",
     "injectmock": "^2.0.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "the-db": "^7.1.12",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
+    "the-db": "^7.8.20",
     "the-demo-component": "^3.0.0",
-    "the-demo-lib": "^1.1.4",
+    "the-demo-lib": "^2.0.0",
     "the-demo-resource": "^2.0.4",
-    "the-demo-site": "^6.0.1"
+    "the-demo-site": "^6.1.4"
   },
   "engines": {
     "node": ">=7.6",

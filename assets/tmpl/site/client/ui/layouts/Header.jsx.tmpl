@@ -11,18 +11,22 @@ import {
   TheDropdownMenu,
   TheCondition
 } from 'the-components'
-import { withLoc } from 'the-loc'
 import { Urls, Icons } from '@self/conf'
-import { withRole, withText } from '../wrappers'
+import { labelHelper } from '../helpers'
+import { asPure, asBound, compose, withRole, withLoc } from '../wrappers'
 
-const Header = ({
-                  l,
-                  isAdmin,
-                  synced,
-                  user,
-                  notices,
-                  displayNameForUser
-                }) => {
+const {displayNameForUser} = labelHelper
+
+const Header = compose(
+  withRole,
+  withLoc
+)(function HeaderImpl ({
+                         l,
+                         isAdmin,
+                         synced,
+                         user,
+                         notices
+                       }) {
   return (
     <TheHeader className='header'
                notices={notices}>
@@ -60,10 +64,11 @@ const Header = ({
       </TheCondition>
     </TheHeader>
   )
-}
+})
 
-export default withRole(
-  withText(
-    withLoc(Header)
-  )
+export default asBound(
+  Header,
+  (state) => ({}),
+  () => ({}),
+  {}
 )
