@@ -56,17 +56,28 @@ export default asBound(
     spinning: state['user.destroy.busy'],
     active: state['user.destroy.active'],
     done: state['user.destroy.done'],
+    users: state['user.destroy.targets'],
   }),
   ({
+     l,
      userDestroyScene,
-     userCheckScene
+     userCheckScene,
+     userListScene,
+     toastScene
    }, propsProxy) => ({
-    onClose: () => userDestroyScene.clear(),
+    onClose: () => userDestroyScene.set({
+      done: false,
+      active: false
+    }),
     onSubmit: async () => {
       await userDestroyScene.doDestroy()
-      userDestroyScene.set({done: true})
-      userCheckScene.clear()
-
+      userDestroyScene.set({
+        done: true,
+        active: false
+      })
+      userCheckScene.init()
+      toastScene.showInfo(l('toasts.USER_DESTROY_DID_SUCCESS'))
+      await userListScene.doSync()
     }
   })
 )

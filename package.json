@@ -1,6 +1,6 @@
 {
   "name": "the-scaffold",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "Scaffold for the-projects",
   "main": "lib",
   "bin": {
@@ -47,7 +47,7 @@
     "the-demo-component": "^3.0.0",
     "the-demo-lib": "^2.0.0",
     "the-demo-resource": "^2.0.4",
-    "the-demo-site": "^6.1.4"
+    "the-demo-site": "^6.1.6"
   },
   "engines": {
     "node": ">=7.6",
