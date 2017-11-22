@@ -30,8 +30,11 @@ apeTasking.runTasks('tmplify', [
         pattern: [
           '**/*.*',
           '.*',
-          '+(assets|bin|doc|docs|client|server|utils|src|lib|test)/**/.*.bud',
-          '+(assets|bin|doc|docs|client|server|utils|src|lib|test)/**/.*.hbs'
+          '.*.bud',
+          '+(assets|bin|doc|docs|example|tests|client|server|utils|src|lib|test)/.*.bud',
+          '+(assets|bin|doc|docs|example|tests|client|server|utils|src|lib|test)/**/.*.bud',
+          '+(assets|bin|doc|docs|example|tests|client|server|utils|src|lib|test)/.*.hbs',
+          '+(assets|bin|doc|docs|example|tests|client|server|utils|src|lib|test)/**/.*.hbs'
         ],
         ignore: [
           '.DS_Store',
