@@ -23,9 +23,9 @@ const UserSearchForm = withLoc(
 export default asBound(
   UserSearchForm,
   (state) => ({
-    spinning: state['user.search.busy'],
-    values: state['user.search.entry'],
-    errors: state['user.search.entryErrors']
+    spinning: state['userSearch.busy'],
+    values: state['userSearch.entry'],
+    errors: state['userSearch.entryErrors']
   }),
   ({
      userSearchScene,
@@ -35,7 +35,10 @@ export default asBound(
     onSubmit: async () => {
       const {q} = propsProxy.values || {}
       if (q) {
-        userListScene.set({filter: {name: {$like: `%${String(q).trim()}%`}}})
+        userListScene.set({
+          pageNumber: 1,
+          filter: {name: {$like: `%${String(q).trim()}%`}}
+        })
       } else {
         userListScene.init('filter')
       }

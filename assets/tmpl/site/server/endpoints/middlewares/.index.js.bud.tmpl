@@ -2,10 +2,11 @@
 
 const {dir} = require('the-templates')
 
-module.exports = dir.recursive({
+module.exports = dir({
   dirname: __dirname,
-  name: 'bounds',
-  description: 'Bound components'
+  node: true,
+  name: 'middlewares',
+  description: 'Server middlewares'
 })
 
 if (!module.parent) {

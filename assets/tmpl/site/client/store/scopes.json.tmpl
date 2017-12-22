@@ -1,4 +1,30 @@
 {
+  "_": {
+    "check": {
+      "values": "OBJ"
+    },
+    "input": {
+      "busy": "BOOL",
+      "done": "BOOL",
+      "entry": "OBJ",
+      "entryErrors": "OBJ"
+    },
+    "list": {
+      "busy": "BOOL",
+      "counts": "OBJ",
+      "entities": "ARR",
+      "filter": "OBJ",
+      "pageNumber": "NUM",
+      "pageSize": "NUM",
+      "ready": "BOOL",
+      "sort": "STR"
+    },
+    "process": {
+      "busy": "BOOL",
+      "done": "BOOL",
+      "targets": "ARR"
+    }
+  },
   "account": {
     "busy": "BOOL",
     "synced": "BOOL",
@@ -7,123 +33,79 @@
   "app": {
     "busy": "BOOL"
   },
-  "password": {
-    "change": {
-      "busy": "BOOL",
-      "done": "BOOL",
-      "entry": "OBJ",
-      "entryErrors": "OBJ"
-    }
+  "passwordChange": {
+    "$ref": "#/_/input"
   },
-  "profile": {
-    "edit": {
-      "busy": "BOOL",
-      "done": "BOOL",
-      "entry": "OBJ",
-      "entryErrors": "OBJ"
-    }
+  "profileEdit": {
+    "$ref": "#/_/input"
   },
   "quit": {
     "busy": "BOOL",
     "confirm": "BOOL",
     "done": "BOOL"
   },
-  "recover": {
-    "reset": {
-      "busy": "BOOL",
-      "done": "BOOL",
-      "entry": "OBJ",
-      "entryErrors": "OBJ",
-      "envelop": "VAL",
-      "failure": "STR",
-      "seal": "VAL"
-    },
-    "send": {
-      "busy": "BOOL",
-      "done": "BOOL",
-      "entry": "OBJ",
-      "entryErrors": "OBJ",
-      "failure": "STR"
-    }
+  "recoverReset": {
+    "$ref": "#/_/input",
+    "failure": "STR"
   },
-  "sign": {
-    "ask": {
-      "back": "STR",
-      "busy": "BOOL"
-    },
-    "in": {
-      "back": "STR",
-      "busy": "BOOL",
-      "entry": "OBJ",
-      "entryErrors": "OBJ"
-    },
-    "out": {
-      "busy": "BOOL",
-      "done": "BOOL"
-    },
-    "up": {
-      "back": "VAL",
-      "busy": "BOOL",
-      "entry": "OBJ",
-      "entryErrors": "OBJ"
-    }
+  "recoverSend": {
+    "$ref": "#/_/input",
+    "failure": "STR"
+  },
+  "signAsk": {
+    "back": "STR",
+    "busy": "BOOL"
+  },
+  "signIn": {
+    "$ref": "#/_/input",
+    "back": "STR"
+  },
+  "signOut": {
+    "busy": "BOOL",
+    "done": "BOOL"
+  },
+  "signUp": {
+    "$ref": "#/_/input",
+    "back": "VAL"
   },
   "toast": {
     "error": "ARR",
     "info": "ARR",
     "warn": "ARR"
   },
-  "user": {
-    "check": {
-      "values": "OBJ"
-    },
-    "create": {
-      "active": "BOOL",
-      "busy": "BOOL",
-      "created": "VAL",
-      "done": "BOOL",
-      "entry": "OBJ",
-      "entryErrors": "OBJ"
-    },
-    "destroy": {
-      "active": "BOOL",
-      "busy": "BOOL",
-      "done": "BOOL",
-      "targets": "ARR"
-    },
-    "list": {
-      "busy": "BOOL",
-      "counts": "OBJ",
-      "entities": "ARR",
-      "filter": "OBJ",
-      "pageNumber": "NUM",
-      "ready": "BOOL",
-      "sort": "STR"
-    },
-    "password": {
-      "active": "BOOL",
-      "busy": "BOOL",
-      "done": "BOOL",
-      "results": "OBJ",
-      "targets": "ARR"
-    },
-    "search": {
-      "busy": "BOOL",
-      "entry": "OBJ",
-      "entryErrors": "OBJ"
-    }
+  "userCheck": {
+    "$ref": "#/_/check"
   },
-  "verify": {
-    "needsVerify": "BOOL",
-    "send": {
-      "busy": "BOOL"
-    },
-    "verify": {
-      "busy": "BOOL",
-      "done": "BOOL",
-      "envelop": "VAL",
-      "failure": "STR",
-      "seal": "VAL"
-    }
+  "userCreate": {
+    "$ref": "#/_/input",
+    "active": "BOOL",
+    "created": "VAL"
+  },
+  "userDestroy": {
+    "active": "BOOL",
+    "busy": "BOOL",
+    "done": "BOOL",
+    "targets": "ARR"
+  },
+  "userList": {
+    "$ref": "#/_/list"
+  },
+  "userPassword": {
+    "$ref": "#/_/process",
+    "active": "BOOL",
+    "results": "OBJ"
+  },
+  "userSearch": {
+    "$ref": "#/_/input"
+  },
+  "verifyConfirm": {
+    "$ref": "#/_/input",
+    "failure": "STR"
+  },
+  "verifyNeed": {
+    "needed": "BOOL"
+  },
+  "verifySend": {
+    "busy": "BOOL"
   }
 }
