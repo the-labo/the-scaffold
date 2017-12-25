@@ -1,0 +1,7 @@
+#!/bin/bash
+
+sudo nginx -s stop
+sudo certbot certonly --standalone -d ~~~~package_name~~~~.com --agree-tos -n
+sudo certbot certonly --standalone -d www.~~~~package_name~~~~.com --agree-tos -n
+sudo nginx
+  

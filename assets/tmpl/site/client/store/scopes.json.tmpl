@@ -33,6 +33,10 @@
   "app": {
     "busy": "BOOL"
   },
+  "cautionDisconnected": {
+    "active": "BOOL",
+    "busy": "BOOL"
+  },
   "passwordChange": {
     "$ref": "#/_/input"
   },
@@ -61,6 +65,7 @@
     "back": "STR"
   },
   "signOut": {
+    "back": "STR",
     "busy": "BOOL",
     "done": "BOOL"
   },
@@ -82,10 +87,8 @@
     "created": "VAL"
   },
   "userDestroy": {
-    "active": "BOOL",
-    "busy": "BOOL",
-    "done": "BOOL",
-    "targets": "ARR"
+    "$ref": "#/_/process",
+    "active": "BOOL"
   },
   "userList": {
     "$ref": "#/_/list"
