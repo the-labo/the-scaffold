@@ -8,7 +8,7 @@
 const theScaffold = require('./the_scaffold')
 const tmpls = require('./tmpls.json')
 
-let lib = theScaffold.bind(this)
+const lib = theScaffold.bind(this)
 
 Object.assign(lib, theScaffold, {
   tmpls,
