@@ -7,11 +7,8 @@
 const ~~~~package_name@pascalcase~~~~ = require('./~~~~package_name@pascalcase~~~~')
 const create = require('./create')
 
-const lib = create.bind(this)
-
-Object.assign(lib, {
+module.exports = {
   ~~~~package_name@pascalcase~~~~,
-  create
-})
-
-module.exports = lib
+  create,
+  default: create,
+}
