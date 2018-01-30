@@ -1,6 +1,6 @@
 {
   "name": "the-scaffold",
-  "version": "2.0.22",
+  "version": "2.0.23",
   "description": "Scaffold for the-projects",
   "main": "lib",
   "bin": {
@@ -34,7 +34,7 @@
     "tmplconv": "^3.2.1"
   },
   "devDependencies": {
-    "amocha": "^4.0.0",
+    "amocha": "*",
     "ape-formatting": "^1.0.2",
     "ape-releasing": "^4.0.4",
     "ape-tasking": "^4.0.9",
