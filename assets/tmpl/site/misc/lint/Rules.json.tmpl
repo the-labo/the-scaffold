@@ -1,0 +1,110 @@
+{
+  "client/scenes/!(index).js": {
+    "filenameRule": {
+      "endsWith": "Scene.js"
+    }
+  },
+  "client/scenes/*Scene.js": {
+    "callRule": {
+      "keypathArguments": {
+        "bindScope": "client/scopes"
+      }
+    }
+  },
+  "client/ui/**/*.jsx": {
+    "callRule": {
+      "keypathArguments": {
+        "l": "conf/locales/en"
+      }
+    },
+    "propRule": {
+      "keypathAccess": {
+        "state": "client/store/scopes"
+      }
+    }
+  },
+  "client/ui/stateful/admin/**/*.jsx": {
+    "filenameRule": {
+      "startsWith": "Admin"
+    }
+  },
+  "client/ui/stateful/sign/*.jsx": {
+    "filenameRule": {
+      "startsWith": "Sign"
+    }
+  },
+  "client/ui/views/**/!(index).jsx": {
+    "filenameRule": {
+      "endsWith": "View.jsx"
+    }
+  },
+  "client/ui/views/admin/**/*.jsx": {
+    "filenameRule": {
+      "startsWith": "Admin"
+    }
+  },
+  "conf/Icons.js": {
+    "moduleRule": {
+      "keyPattern": "/^[A-Z_]+_ICON/",
+      "type": "object"
+    }
+  },
+  "conf/Urls.js": {
+    "moduleRule": {
+      "keyPattern": "/^[A-Z_]+_URL$/",
+      "type": "object",
+      "valuePattern": "/^//",
+      "valueUnique": true
+    }
+  },
+  "server/**/*.js": {
+    "contentRule": {
+      "endsWithNewLine": true
+    }
+  },
+  "server/controllers/!(index).js": {
+    "filenameRule": {
+      "endsWith": "Ctrl.js"
+    },
+    "moduleRule": {
+      "type": "function"
+    }
+  },
+  "server/db/hooks/!(index).js": {
+    "filenameRule": {
+      "endsWith": "Hook.js"
+    },
+    "moduleRule": {
+      "type": "function"
+    }
+  },
+  "server/db/resources/!(index).js": {
+    "filenameRule": {
+      "endsWith": "Resource.js"
+    },
+    "moduleRule": {
+      "type": "function"
+    }
+  },
+  "server/db/seeds/**/!(index|_*).js": {
+    "filenameRule": {
+      "endsWith": ".seed.js"
+    }
+  },
+  "server/endpoints/routes/!(index).js": {
+    "filenameRule": {
+      "endsWith": "Route.js"
+    },
+    "moduleRule": {
+      "type": "function"
+    }
+  },
+  "server/services/!(index).js": {
+    "filenameRule": {
+      "endsWith": "Service.js"
+    },
+    "moduleRule": {
+      "type": "function"
+    }
+  }
+}

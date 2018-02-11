@@ -1,0 +1,19 @@
+Preparing
+----------
+
+Install CLI packages if you have not
+
+```bash
+# Install global dependencies
+npm i -g yarn pon pm2 jsdoc mocha
+```
+
+Then, install dependencies and build the project
+
+```bash
+# Install dependencies
+yarn install
+
+# Prepare project (Start up docker, create db, compile files, .etc)
+pon prepare
+```
