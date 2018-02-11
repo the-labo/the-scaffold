@@ -4,11 +4,10 @@
  */
 'use strict'
 
-const ~~~~package_name@pascalcase~~~~ = require('./~~~~package_name@pascalcase~~~~')
-const create = require('./create')
+const _d = (m) => 'default' in m ? m.default : m
 
 module.exports = {
-  ~~~~package_name@pascalcase~~~~,
-  create,
-  default: create,
+  get ~~~~package_name@pascalcase~~~~ () { return _d(require('./~~~~package_name@pascalcase~~~~')) },
+  get create () { return _d(require('./create')) },
+  get default () { return _d(require('./create')) },
 }

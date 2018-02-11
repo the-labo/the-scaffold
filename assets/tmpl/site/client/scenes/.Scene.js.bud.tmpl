@@ -1,10 +1,9 @@
 'use strict'
 
-const path = require('path')
-
-const scopes = require('../store/scopes')
+const {Scene} = require('the-templates')
+const scopes = require('../scopes')
 const {flatten} = require('objnest')
-const {pascalcase, camelcase} = require('stringcase')
+const {pascalcase} = require('stringcase')
 const names = Object.keys(flatten(scopes))
   .filter((name) => !/^_/.test(name))
   .filter((name) => !/^abstract/.test(name))
@@ -15,16 +14,7 @@ const names = Object.keys(flatten(scopes))
     )
   }).filter((v, i, arr) => arr.indexOf(v) === i)
 
-module.exports = names.map((name) => ({
-  force: false,
-  mkdirp: true,
-  mode: '644',
-  path: `${name}Scene.js`,
-  data: {
-    name: path.basename(name) + 'Scene',
-    scopePath: camelcase(name)
-  }
-}))
+module.exports = names.map((name) => Scene({cjs: true, name}))
 
 if (!module.parent) {
   require('coz').render(__filename)

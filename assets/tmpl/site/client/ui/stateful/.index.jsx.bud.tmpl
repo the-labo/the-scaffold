@@ -2,10 +2,10 @@
 
 const {dir} = require('the-templates')
 
-module.exports = dir({
+module.exports = dir.recursive({
   dirname: __dirname,
-  name: 'wrappers',
-  description: 'HOC Wrappers',
+  name: 'bounds',
+  description: 'Bound components',
   ext: '.jsx',
 })
 

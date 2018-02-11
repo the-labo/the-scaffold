@@ -2,12 +2,12 @@
 
 const {dir} = require('the-templates')
 
-module.exports = dir({
+module.exports = [true].map((cjs) => dir({
   dirname: __dirname,
-  name: 'wrappers',
-  description: 'HOC Wrappers',
-  ext: '.jsx',
-})
+  cjs,
+  name: 'scenes',
+  description: 'Abstract scenes'
+}))
 
 if (!module.parent) {
   require('coz').render(__filename)

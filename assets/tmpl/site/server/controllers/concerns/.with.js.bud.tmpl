@@ -1,17 +1,18 @@
 /**
- * Bud file for with
+ * Bud file for Ctrls
  */
 'use strict'
 
+const path = require('path')
+
 module.exports = [
-  'withAlias',
-  'withDebug'
 ].map((name) => ({
   force: false,
   mode: '644',
+  mkdirp: true,
   path: `${name}.js`,
   data: {
-    name
+    name: path.basename(name)
   }
 }))
 
