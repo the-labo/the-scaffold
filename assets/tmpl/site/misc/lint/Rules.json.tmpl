@@ -9,6 +9,9 @@
       "keypathArguments": {
         "bindScope": "client/scopes"
       }
+    },
+    "decorateRule": {
+      "declared": true
     }
   },
   "client/ui/**/*.jsx": {
@@ -16,6 +19,22 @@
       "keypathArguments": {
         "l": "conf/locales/en"
       }
+    },
+    "decorateRule": {
+      "declared": true
+    },
+    "depsRule": {
+      "importFrom": [
+        ".mjs",
+        ".js",
+        ".jsx",
+        ".json",
+        ".pcss"
+      ],
+      "requireFrom": [
+        ".js",
+        ".json"
+      ]
     },
     "propRule": {
       "keypathAccess": {
@@ -60,6 +79,17 @@
   "server/**/*.js": {
     "contentRule": {
       "endsWithNewLine": true
+    },
+    "depsRule": {
+      "importFrom": [
+        ".mjs",
+        ".js",
+        ".json"
+      ],
+      "requireFrom": [
+        ".js",
+        ".json"
+      ]
     }
   },
   "server/controllers/!(index).js": {
@@ -67,6 +97,7 @@
       "endsWith": "Ctrl.js"
     },
     "moduleRule": {
+      "namedFromDefault": true,
       "type": "function"
     }
   },
@@ -75,6 +106,7 @@
       "endsWith": "Hook.js"
     },
     "moduleRule": {
+      "namedFromDefault": true,
       "type": "function"
     }
   },
@@ -83,6 +115,7 @@
       "endsWith": "Resource.js"
     },
     "moduleRule": {
+      "namedFromDefault": true,
       "type": "function"
     }
   },
@@ -104,6 +137,7 @@
       "endsWith": "Service.js"
     },
     "moduleRule": {
+      "namedFromDefault": true,
       "type": "function"
     }
   }

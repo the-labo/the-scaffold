@@ -1,13 +1,12 @@
 /**
- * Bud file for fragment components
+ * Bud file for stateless components
  */
 'use strict'
 
 const {Stateful} = require('the-templates')
 
 module.exports = [
-  'home/HomePanel',
-  'intro/Intro',
+  'admin/user/AdminUserRoleForm'
 ].map((name) => Stateful({
   name
 }))

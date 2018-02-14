@@ -7,19 +7,17 @@ import React from 'react'
 import { localized, stateful } from 'the-component-mixins'
 import { withForm } from 'the-components'
 import { TheUserCreateForm } from 'the-site-components'
-import { RoleCodes } from '@self/conf'
+import { withRole } from '../../../wrappers'
 
+@withRole
 @withForm
 @localized
 class AdminUserCreateForm extends React.Component {
   render () {
-    const {l} = this.props
+    const {roles} = this.props
     return (
       <TheUserCreateForm {...this.props}
-                         roles={{
-                           [RoleCodes.ADMIN_ROLE]: l('roleCodes.ADMIN_ROLE'),
-                           [RoleCodes.NORMAL_ROLE]: l('roleCodes.NORMAL_ROLE'),
-                         }}
+                         roles={roles}
       />
     )
   }
@@ -40,7 +38,7 @@ export default stateful(
     onSubmit: async () => {
       await adminUserCreateScene.doExec()
       adminUserCreateScene.set({done: true})
-      toastScene.showInfo(l('toasts.ADMIN_USER_CREATE_DID_SUCCESS'))
+      toastScene.showInfo(l('toasts.USER_CREATE_DID_SUCCESS'))
       await adminUserListScene.doSync()
     },
     onUpdate: (v) => adminUserCreateScene.setEntry(v),
