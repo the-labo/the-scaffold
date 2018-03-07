@@ -2,9 +2,9 @@
 
 import React from 'react'
 import { cycled, stateful } from 'the-component-mixins'
+import { wrapStack } from 'the-component-mixins/helpers'
 
-function ofUser (Component,
-                 options = {}) {
+function ofUser (Component) {
 
   @cycled
   class OfUser extends React.Component {
@@ -15,22 +15,17 @@ function ofUser (Component,
     }
   }
 
+  OfUser.wrapStack = wrapStack(OfUser, Component)
+
   return stateful(
-    (state, ownProps) => {
-      return {
-        user: ownProps.user || state['account.entity'],
-      }
-    },
-    (handle, propsProxy) => {
-      return {
-        onReceive ({user}) {
-          if (user) {
-            propsProxy.onUser?.(user)
-          }
-        },
-      }
-    },
-    options
+    (state, ownProps) => ({
+      user: ownProps.user || state['account.entity'],
+    }),
+    (handle, propsProxy) => ({
+      onReceive ({user}) {
+        user && propsProxy.onUser?.(user)
+      },
+    })
   )(OfUser)
 }
 
