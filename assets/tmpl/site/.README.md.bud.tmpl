@@ -12,9 +12,9 @@ const {Urls} = require('@self/conf')
 module.exports = readmeMdBud({
   pkg,
   repo: pkg.repository,
-  sections: 'doc/guides/*.md.hbs',
+  sections: 'doc/guides/*.md',
   badges: {
-    travis: true,
+    travis: false,
     npm: true,
     standard: true
   },
@@ -23,6 +23,7 @@ module.exports = readmeMdBud({
   vars: {
     Directories: require('./misc/project/Directories'),
     Pondoc: require('./misc/project/Pondoc'),
+    PondocDev: require('./misc/project/Pondoc.dev'),
     ResourceMapping,
     Urls,
   }

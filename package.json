@@ -1,6 +1,6 @@
 {
   "name": "the-scaffold",
-  "version": "3.1.5",
+  "version": "3.1.6",
   "description": "Scaffold for the-projects",
   "main": "lib",
   "bin": {
@@ -27,10 +27,10 @@
   "dependencies": {
     "askconfig": "^4.0.1",
     "co": "^4.6.0",
-    "commander": "^2.14.1",
+    "commander": "^2.15.1",
     "gitconfig": "^2.0.3",
-    "the-scope": "^2.1.1",
-    "the-store": "^5.4.6",
+    "the-scope": "^2.1.4",
+    "the-store": "^6.0.0",
     "tmplconv": "^3.2.1"
   },
   "devDependencies": {
@@ -41,15 +41,15 @@
     "ape-tmpl": "^6.0.10",
     "ape-updating": "^4.1.1",
     "coz": "^7.0.1",
-    "eslint": "^4.18.2",
+    "eslint": "^4.19.1",
     "injectmock": "^2.0.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "the-db": "^9.3.15",
-    "the-demo-component": "^3.0.4",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "the-db": "^9.3.40",
+    "the-demo-component": "^3.0.6",
     "the-demo-lib": "^2.1.5",
     "the-demo-resource": "^2.0.4",
-    "the-demo-site": "^8.1.5"
+    "the-demo-site": "^9.11.1"
   },
   "engines": {
     "node": ">=8",

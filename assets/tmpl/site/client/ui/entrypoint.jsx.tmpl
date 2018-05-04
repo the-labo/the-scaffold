@@ -1,23 +1,31 @@
 'use strict'
 
+import 'the-polyfill/apply'
 import React from 'react'
 import { isProduction } from 'the-check'
-import { history as historyFor, mount } from 'the-entrypoint'
+import { history as historyFor, mount, singleton, workers } from 'the-entrypoint'
 import { get, once, rescue, set } from 'the-window'
-import { GlobalKeys, locales, UI } from '@self/conf'
+import { GlobalKeys, locales, UI, Urls } from '@self/conf'
 import App from './App'
 import client from '../client'
 import handle from '../handle'
 import store from '../store'
 
+singleton()
 set(GlobalKeys.STAGE, 'registering')
+
+void async function () {
+  await workers({
+    '/': Urls.JS_ROOT_SERVICE_WORKER_URL,
+  })
+}()
 
 once('DOMContentLoaded', async () => {
   set(GlobalKeys.STAGE, 'mounting')
 
   const props = get(GlobalKeys.PROPS)
   const {
-    lang = (get('navigator.language')).split('-')[0],
+    lang = (get('navigator.language')).split('-')[0] || UI.DEFAULT_LANG,
   } = props
   const app = (<App {...props} {...{client, handle, store}}/>)
   const l = locales.bind(lang)
@@ -28,7 +36,7 @@ once('DOMContentLoaded', async () => {
   handle.initAll()
 
   const {appScene, toastScene} = handle
-  history.listen((location) => appScene.setLocation(location))
+  history.listen((location) => appScene.handleLocationChange(location))
   appScene.set({host: get('location.host'), locale: lang})
   appScene.setLocation(history.location)
 

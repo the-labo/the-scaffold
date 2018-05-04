@@ -7,9 +7,8 @@
 const theSeat = require('the-seat').default
 const theSecret = require('the-secret').default
 const theSetting = require('the-setting').default
-const {envOf, seatAccess} = require('the-site-util')
-const {inspect} = require('util')
-const pkg = require('./package.json')
+const {asLocal, envOf, seatAccess} = require('the-site-util')
+const pkg = require('./package')
 
 const secret = theSecret(`${__dirname}/secrets.json`, envOf('THE_DEMO_SITE_MASTER_PASSWORD', {strict: true}))
 const seat = theSeat()
@@ -37,11 +36,14 @@ const Vars = Object.freeze(
     APP_PORT: portNumberFor(`app@${__dirname}`),
     APP_PROCESS_NAME: processNameFor(`${pkg.name}@${__dirname}`) + '-app',
     BACKUP_PROCESS_NAME: processNameFor(`${pkg.name}@${__dirname}`) + '-backup',
+    E2E_PORT: portNumberFor(`e2e@${__dirname}`),
+    E2E_SCREENSHOT_DIR: `${__dirname}/var/e2e/screenshots`,
     INSPECT_PORT: portNumberFor(`inspect@${__dirname}`),
     MYSQL_CONTAINER_NAME: containerNameFor(`${pkg.name}-mysql@${__dirname}`),
     MYSQL_CONTAINER_PORT: portNumberFor(`mysql@${__dirname}`),
     NGINX_CONTAINER_NAME: containerNameFor(`${pkg.name}-nginx@${__dirname}`),
     NGINX_CONTAINER_PORT: portNumberFor(`nginx@${__dirname}`),
+    NGINX_CONTAINER_SECURE_PORT: portNumberFor(`nginx:secure@${__dirname}`),
     PUBLIC_DIR: `${__dirname}/public`,
     REDIS_CONTAINER_NAME: containerNameFor(`${pkg.name}-redis@${__dirname}`),
     REDIS_CONTAINER_PORT: portNumberFor(`redis@${__dirname}`),
@@ -52,16 +54,15 @@ const Vars = Object.freeze(
 )
 
 /** @lends Local */
-const Local = {
+const Local = asLocal({
   __proto__: {
-    print: () => console.log(inspect(Local)),
     secret,
     setting,
   },
   ...secret.get(),
   ...setting.get(),
   ...Vars,
-}
+})
 
 module.exports = Local
 

@@ -10,7 +10,9 @@ pon <taskName>
 ```
 
 
-### Available Tasks
+### Core Tasks
+
+Tasks defined in [Ponfile.js]('./Ponfile.js')
 
 | TaskName | Description | Command |
 | -------- | ----------- | ------- |
@@ -18,5 +20,15 @@ pon <taskName>
 | {{@key}} | {{{this}}} | `pon {{@key}}` |
 {{/each}}
 
+
+### Dev Only Tasks
+
+Tasks defined in [Ponfile.dev.js]('./Ponfile.dev.js')
+
+| TaskName | Description | Command |
+| -------- | ----------- | ------- |
+{{#each vars.PondocDev.tasks}}
+| {{@key}} | {{{this}}} | `pon {{@key}}` |
+{{/each}}
 
 For more information, try `pon -l`

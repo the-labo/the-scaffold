@@ -5,6 +5,7 @@
  */
 'use strict'
 
+require('the-polyfill/apply')
 const {server} = require('../server')
 
 const {isProduction} = require('the-check')
@@ -16,18 +17,16 @@ void async function () {
   function onListen () {
     console.log(`
   =============================
+  Access in your browser
   
-  Access to http://localhost:${Local.NGINX_CONTAINER_PORT} in your browser
+  HTTP -> http://localhost:${Local.NGINX_CONTAINER_PORT}
+  HTTPS -> https://localhost:${Local.NGINX_CONTAINER_SECURE_PORT} 
   
   =============================
   `)
   }
 
-  if (isProduction()) {
-    await server.listenAsCluster(port, onListen)
-  } else {
-    await server.listen(port, onListen)
-  }
+  await server.listen(port, onListen)
 }().catch((err) => {
   console.error(err)
   process.exit(1)

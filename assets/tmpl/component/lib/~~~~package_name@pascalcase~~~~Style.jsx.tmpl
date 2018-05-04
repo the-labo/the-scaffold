@@ -1,13 +1,13 @@
 'use strict'
 
-import React from 'react'
-import PropTypes from 'prop-types'
 import c from 'classnames'
-import TheStyle from 'the-style'
+import PropTypes from 'prop-types'
+import React from 'react'
 import { asStyleData } from 'the-component-util'
+import TheStyle from 'the-style'
 
 /** Style for ~~~~package_name@pascalcase~~~~ */
-const ~~~~package_name@pascalcase~~~~Style = ({id, className, options}) => (
+const ~~~~package_name@pascalcase~~~~Style = ({className, id, options}) => (
   <TheStyle {...{id}}
             className={c('~~~~package_name~~~~-style', className)}
             styles={~~~~package_name@pascalcase~~~~Style.data(options)}
@@ -17,20 +17,20 @@ const ~~~~package_name@pascalcase~~~~Style = ({id, className, options}) => (
 ~~~~package_name@pascalcase~~~~Style.displayName = '~~~~package_name@pascalcase~~~~Style'
 ~~~~package_name@pascalcase~~~~Style.propTypes = {
   /** Style options */
-  options: PropTypes.object
+  options: PropTypes.object,
 }
 
 ~~~~package_name@pascalcase~~~~Style.defaultProps = {
-  options: {}
+  options: {},
 }
 
 ~~~~package_name@pascalcase~~~~Style.data = (options) => {
   const {ThemeValues} = TheStyle
   const {
-    dominantColor = ThemeValues.dominantColor
+    dominantColor = ThemeValues.dominantColor,
   } = options
   return asStyleData('.~~~~package_name~~~~', {
-    '&': {}
+    '&': {},
   })
 }
 

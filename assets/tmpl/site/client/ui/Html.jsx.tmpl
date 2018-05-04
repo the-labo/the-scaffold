@@ -6,6 +6,7 @@
 import React from 'react'
 import { isProduction } from 'the-check'
 import { TheBody, TheHead, TheHtml, TheRouter } from 'the-components'
+import { resolveUrl } from 'the-site-util'
 import { GlobalKeys, locales, Styles, UI, Urls } from '@self/conf'
 import App from './App'
 
@@ -15,17 +16,20 @@ function Html ({appScope, renderingContext}) {
     cdnUrl,
     version,
   } = appScope
-  const {client, handle, lang, path, store} = renderingContext
+  const {client, handle, info, lang, path, store} = renderingContext
   const l = locales.bind(lang)
   handle.setAttributes({client, l, lang, store})
   const appProps = {
     lang,
   }
-  const js = isProduction() ? [
-    Urls.PRODUCTION_JS_URL
-  ] : [
-    Urls.JS_EXTERNAL_URL,
-    Urls.JS_BUNDLE_URL
+  const js = [
+    Urls.JS_SHIM_URL,
+    ...(isProduction() ? [
+      Urls.PRODUCTION_JS_URL,
+    ] : [
+      Urls.JS_EXTERNAL_URL,
+      Urls.JS_BUNDLE_URL,
+    ]),
   ]
   const css = isProduction() ? [
     Urls.PRODUCTION_CSS_URL
@@ -33,7 +37,7 @@ function Html ({appScope, renderingContext}) {
     Urls.CSS_NORMALIZE_URL,
     Urls.CSS_THEME_URL,
     Urls.CSS_FONT_URL,
-    Urls.CSS_BUNDLE_URL
+    Urls.CSS_BUNDLE_URL,
   ]
   return (
     <TheHtml>
@@ -41,8 +45,11 @@ function Html ({appScope, renderingContext}) {
                {...{css, js}}
                cdn={cdnUrl}
                color={Styles.DOMINANT_COLOR}
-               globals={{[GlobalKeys.APP]: {}, [GlobalKeys.PROPS]: appProps}}
+               globals={{
+                 [GlobalKeys.APP]: {}, [GlobalKeys.PROPS]: appProps, [client.infoKey]: info,
+               }}
                icon={Urls.ICON_URL}
+               manifest={resolveUrl(Urls.MANIFEST_URL, {lang})}
                version={version}
       >
       </TheHead>

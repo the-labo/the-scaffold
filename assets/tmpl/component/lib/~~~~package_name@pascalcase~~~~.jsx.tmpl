@@ -1,10 +1,10 @@
 'use strict'
 
-import React from 'react'
-import PropTypes from 'prop-types'
 import c from 'classnames'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { eventHandlersFor, htmlAttributesFor } from 'the-component-util'
 import ~~~~package_name@pascalcase~~~~Style from './~~~~package_name@pascalcase~~~~Style'
-import { htmlAttributesFor, eventHandlersFor } from 'the-component-util'
 
 /**
  * ~~~~package_description~~~~
@@ -13,8 +13,8 @@ class ~~~~package_name@pascalcase~~~~ extends React.Component {
   render () {
     const {props} = this
     const {
+      children,
       className,
-      children
     } = props
     return (
       <div {...htmlAttributesFor(props, {except: ['className']})}
