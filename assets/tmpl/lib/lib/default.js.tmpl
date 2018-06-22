@@ -1,0 +1,14 @@
+/**
+ * Default exports
+ * @module default
+ */
+'use strict'
+
+const create = require('./create')
+const ~~~~package_name@pascalcase~~~~ = require('./~~~~package_name@pascalcase~~~~')
+
+const lib = create.bind(create)
+
+module.exports = Object.assign(lib, {
+  ~~~~package_name@pascalcase~~~~,
+})
