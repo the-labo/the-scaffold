@@ -5,14 +5,14 @@
  */
 'use strict'
 
-const _d = (m) => (m && m.__esModule) ? (m.default || m) : m
+const _d = (m) => (m && 'default' in m) ? m.default : m
 
-const ~~~~package_name@pascalcase~~~~ = _d(require('./~~~~package_name@pascalcase~~~~'))
-const create = _d(require('./create'))
-const default_ = _d(require('./default'))
+const ~~~~package_name@pascalcase~~~~_ = require('./~~~~package_name@pascalcase~~~~')
+const create_ = require('./create')
+const default__ = require('./default')
 
 // `module.exports` overrides these `exports.*`, but still needs them for lebab (https://github.com/lebab/lebab)
-exports.~~~~package_name@pascalcase~~~~ = ~~~~package_name@pascalcase~~~~
-exports.create = create
+exports.~~~~package_name@pascalcase~~~~ = _d(~~~~package_name@pascalcase~~~~_)
+exports.create = _d(create_)
 
-module.exports = default_
+module.exports = _d(default__)
