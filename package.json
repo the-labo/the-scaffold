@@ -1,6 +1,6 @@
 {
   "name": "the-scaffold",
-  "version": "3.1.13",
+  "version": "3.1.14",
   "description": "Scaffold for the-projects",
   "main": "lib",
   "bin": {
@@ -25,12 +25,12 @@
   },
   "homepage": "https://github.com/the-labo/the-scaffold#readme",
   "dependencies": {
-    "askconfig": "^4.0.1",
+    "askconfig": "^4.0.2",
     "co": "^4.6.0",
-    "commander": "^2.15.1",
-    "gitconfig": "^2.0.4",
-    "the-scope": "^2.1.12",
-    "the-store": "^7.0.9",
+    "commander": "^2.17.1",
+    "gitconfig": "^2.0.8",
+    "the-scope": "^2.2.0",
+    "the-store": "^7.1.0",
     "tmplconv": "^3.2.1"
   },
   "devDependencies": {
@@ -38,18 +38,18 @@
     "ape-formatting": "^1.0.2",
     "ape-releasing": "^4.0.4",
     "ape-tasking": "^4.0.9",
-    "ape-tmpl": "^6.0.10",
+    "ape-tmpl": "^6.0.11",
     "ape-updating": "^5.0.1",
     "coz": "^7.0.2",
-    "eslint": "^5.0.1",
+    "eslint": "^5.4.0",
     "injectmock": "^2.0.0",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "the-db": "^9.5.10",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "the-db": "^9.5.24",
     "the-demo-component": "^3.0.9",
     "the-demo-lib": "^2.1.7",
     "the-demo-resource": "^2.0.4",
-    "the-demo-site": "^11.0.1"
+    "the-demo-site": "^11.0.6"
   },
   "engines": {
     "node": ">=8",
