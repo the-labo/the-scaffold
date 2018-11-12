@@ -4,21 +4,20 @@ import c from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { eventHandlersFor, htmlAttributesFor } from 'the-component-util'
-import ~~~~package_name@pascalcase~~~~Style from './~~~~package_name@pascalcase~~~~Style'
 
 /**
  * ~~~~package_description~~~~
  */
 class ~~~~package_name@pascalcase~~~~ extends React.Component {
   render () {
-    const {props} = this
+    const { props } = this
     const {
       children,
       className,
     } = props
     return (
-      <div {...htmlAttributesFor(props, {except: ['className']})}
-           {...eventHandlersFor(props, {except: []})}
+      <div {...htmlAttributesFor(props, { except: ['className'] })}
+           {...eventHandlersFor(props, { except: [] })}
            className={c('~~~~package_name~~~~', className)}
       >
         {children}
@@ -26,8 +25,6 @@ class ~~~~package_name@pascalcase~~~~ extends React.Component {
     )
   }
 }
-
-~~~~package_name@pascalcase~~~~.Style = ~~~~package_name@pascalcase~~~~Style
 
 ~~~~package_name@pascalcase~~~~.propTypes = {}
 
