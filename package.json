@@ -1,6 +1,6 @@
 {
   "name": "the-scaffold",
-  "version": "3.1.21",
+  "version": "3.1.22",
   "description": "Scaffold for the-projects",
   "main": "lib",
   "bin": {
@@ -29,8 +29,8 @@
     "co": "^4.6.0",
     "commander": "^2.19.0",
     "gitconfig": "^2.0.8",
-    "the-scope": "^2.2.2",
-    "the-store": "^7.1.1",
+    "the-scope": "^2.2.4",
+    "the-store": "^7.1.4",
     "tmplconv": "^3.2.1"
   },
   "devDependencies": {
