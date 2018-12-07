@@ -1,6 +1,6 @@
 {
   "name": "the-scaffold",
-  "version": "3.1.22",
+  "version": "3.1.23",
   "description": "Scaffold for the-projects",
   "main": "lib",
   "bin": {
@@ -29,8 +29,8 @@
     "co": "^4.6.0",
     "commander": "^2.19.0",
     "gitconfig": "^2.0.8",
-    "the-scope": "^2.2.4",
-    "the-store": "^7.1.4",
+    "the-scope": "^3.0.0",
+    "the-store": "^7.1.6",
     "tmplconv": "^3.2.1"
   },
   "devDependencies": {
@@ -45,7 +45,7 @@
     "injectmock": "^2.0.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "the-db": "^9.6.26",
+    "the-db": "^9.6.27",
     "the-demo-component": "^3.0.12",
     "the-demo-lib": "^2.1.11",
     "the-demo-resource": "^2.0.4",
