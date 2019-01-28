@@ -5,31 +5,11 @@
  */
 'use strict'
 
-const _d = (m) => (m && 'default' in m) ? m.default : m
-
-const AliasResource_ = require('./AliasResource')
-const HistoryResource_ = require('./HistoryResource')
-const ProfileResource_ = require('./ProfileResource')
-const RoleResource_ = require('./RoleResource')
-const SignResource_ = require('./SignResource')
-const TokenResource_ = require('./TokenResource')
-const UserResource_ = require('./UserResource')
+const RoomResource_ = require('./RoomResource')
 
 // `module.exports` overrides these `exports.*`, but still needs them for lebab (https://github.com/lebab/lebab)
-exports.AliasResource = _d(AliasResource_)
-exports.HistoryResource = _d(HistoryResource_)
-exports.ProfileResource = _d(ProfileResource_)
-exports.RoleResource = _d(RoleResource_)
-exports.SignResource = _d(SignResource_)
-exports.TokenResource = _d(TokenResource_)
-exports.UserResource = _d(UserResource_)
+exports.RoomResource = RoomResource_
 
-module.exports = Object.freeze({
-  AliasResource: _d(AliasResource_),
-  HistoryResource: _d(HistoryResource_),
-  ProfileResource: _d(ProfileResource_),
-  RoleResource: _d(RoleResource_),
-  SignResource: _d(SignResource_),
-  TokenResource: _d(TokenResource_),
-  UserResource: _d(UserResource_),
-})
+module.exports = {
+  RoomResource: RoomResource_,
+}

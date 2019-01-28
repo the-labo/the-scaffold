@@ -7,30 +7,21 @@
 
 const pon = require('pon')
 const {
-  command: { fork, spawn: { git, npm, npx } },
+  command: { fork, spawn: { npm, npx } },
   fs: { del },
   open,
 } = require('pon-task-basic')
-const changelog = require('pon-task-changelog')
 const {
   fmtjson, mocha, pondoc,
 } = require('pon-task-dev')
 const icon = require('pon-task-icon')
 const theCode = require('the-code/pon')
-const theE2E = require('the-e2e/pon')
-const theHealth = require('the-health/pon')
-const theLint = require('the-lint/pon')
 const theSupport = require('the-support/pon')
 const { locales } = require('./conf')
-const { E2EConfig } = require('./e2e/constants')
-const StoryMapping = require('./e2e/mappings/StoryMapping')
 const Local = require('./Local')
 const Drawings = require('./misc/icon/Drawings')
-const Rules = require('./misc/lint/Rules')
 const PondocDev = require('./misc/project/Pondoc.dev')
 const { cwd, doc, tasks } = require('./Ponfile')
-
-const e2e = theE2E(E2EConfig)
 
 module.exports = pon(
   /** @module tasks */
@@ -56,7 +47,9 @@ module.exports = pon(
     ...{
       /** Generate icons */
       'icon:gen': [
-        ...Object.entries(Drawings).map(([name, { data, path }]) => icon(path, data)),
+        Drawings.appIcon && icon('assets/images/app-icon.png', Drawings.appIcon),
+        Drawings.fbAppIcon && icon('assets/images/fb/fb-app-icon.png', Drawings.fbAppIcon),
+        Drawings.officialAccountIcon && icon('assets/images/accounts/official-account-icon.png', Drawings.officialAccountIcon),
       ].filter(Boolean),
     },
 
@@ -67,7 +60,7 @@ module.exports = pon(
       /** Cleanup cache files */
       'clean:cache': del('tmp/cache/**/*.*'),
       /** Cleanup public files */
-      'clean:public': del(['public/build/*.*', 'public/*.*']),
+      'clean:public': del('public/build/*.*'),
       /** Cleanup shim files */
       'clean:shim': del(['shim/**/*.*', 'client/shim/**/*.*']),
     },
@@ -85,20 +78,11 @@ module.exports = pon(
     },
 
     // -----------------------------------
-    // Sub Tasks for git
-    // -----------------------------------
-    ...{
-      /** Generate changelog file */
-      'git:changelog': [changelog(), git('add', 'CHANGELOG.md')],
-    },
-
-    // -----------------------------------
     // Sub Tasks for Document
-    // -------  ----------------------------
+    // -----------------------------------
     ...{
       /** Generate pondoc file */
       'doc:pondoc': pondoc('Ponfile.js', 'misc/project/Pondoc.json'),
-      /** Generate pondoc file */
       'doc:pondoc:dev': pondoc('Ponfile.dev.js', 'misc/project/Pondoc.dev.json'),
     },
 
@@ -111,11 +95,16 @@ module.exports = pon(
         'client/ui/**/*.pcss',
         'client/ui/**/*.jsx',
         'client/scenes/**/*.js',
+        'client/+(mappings|ui|scenes|scopes|client|workers)/**/.*.bud',
       ], { ignore: 'client/**/index.*' }),
       /** Format conf files */
-      'format:conf': theCode(['Local.js', 'Ponfile.js', 'Ponfile.*.js', 'conf/*.js'], { ignore: 'conf/index.js' }),
-      /** Format e2e files */
-      'format:e2e': theCode('e2e/**/*.js', {}),
+      'format:conf': theCode([
+        'Local.js',
+        'Ponfile.js',
+        'Ponfile.*.js',
+        'conf/*.js',
+        'conf/.*.bud',
+      ], { ignore: 'conf/index.js' }),
       /** Format json files */
       'format:json': fmtjson([
         'conf/**/*.json',
@@ -123,23 +112,13 @@ module.exports = pon(
         'server/**/*.json',
         'misc/**/*.json',
         'secrets.json',
-      ], { ignore: 'client/shim/**/*.json', sort: true }),
-      /** Format misc files */
-      'format:misc': theCode('misc/**/*.js', {}),
+      ], { sort: true }),
       /** Format server files */
-      'format:server': theCode('server/**/*.js', {}),
-    },
-
-    // -----------------------------------
-    // Sub Tasks for Lint
-    // -----------------------------------
-    ...{
-      /** Health check */
-      'lint:health': theHealth(),
-      /** Validate locales */
-      'lint:loc': () => locales.validate(),
-      /** Lint by rules */
-      'lint:rules': theLint(Rules),
+      /** Format server files */
+      'format:server': theCode([
+        'server/**/*.js',
+        'server/**/.*.bud',
+      ], {}),
     },
 
     // -----------------------------------
@@ -165,39 +144,38 @@ module.exports = pon(
     },
 
     // -----------------------------------
-    // E2E
-    // -----------------------------------
-    ...{
-      /** Install drivers for E2E */
-      'e2e:install': e2e.install,
-      /** Listen for E2E tests */
-      'e2e:listen': e2e.listen,
-      /** Run stories for E2E tests */
-      'e2e:story': e2e.story(StoryMapping),
-    },
-
-    // -----------------------------------
     // Main Tasks
     // -----------------------------------
     ...{
+      /** Build project */
+      build: [...tasks.build, 'format',],
       /** Clean all */
       clean: ['clean:shim', 'clean:public', 'clean:cache'],
       /** Start debugging */
-      debug: ['ps:debug', 'env:debug', 'build', 'lint', 'debug:*'],
-      /** Run e2e test */
-      e2e: ['e2e:story'],
+      debug: ['ps:debug', 'env:debug', 'build', 'debug:*'],
+      /** Deploy project on development */
+      deploy: [
+        'maint:on',
+        'stop',
+        'git:catchup',
+        'pkg:install',
+        'b',
+        'db:seed',
+        'db:migrate',
+        'start',
+        'maint:off'
+      ],
       /** Format source codes */
-      format: ['format:conf', 'format:json', 'format:client', 'format:server', 'format:misc', 'format:e2e'],
-      /** Lint all */
-      lint: ['lint:loc', 'lint:rules', 'lint:health'],
+      format: [
+        'format:conf', 'format:json', 'format:client', 'format:server'
+      ],
       /** Open project */
       open: 'open:app',
       /** Prepare project */
       prepare: [
-        'clean:cache',
         ...tasks.prepare,
-        ...['e2e:install', 'pkg:fix', 'doc:*', 'lint'],
-        ...['test:support']
+        ...['format', 'pkg:fix', 'doc',],
+        ...['test:support'],
       ],
       /** Start server */
       start: ['debug:server'],
@@ -221,14 +199,8 @@ module.exports = pon(
       d: 'debug',
       /** Shortcut for `debug:server` task */
       ds: 'debug:server',
-      /** Shortcut for `e2e` task */
-      e: 'e2e',
-      /** Shortcut for `e2e:listen` task */
-      el: 'e2e:listen',
       /** Shortcut for `format` task */
       f: 'format',
-      /** Shortcut for `lint` task */
-      l: 'lint',
       /** Shortcut for `open` task */
       o: 'open',
       /** Shortcut for `open` task */

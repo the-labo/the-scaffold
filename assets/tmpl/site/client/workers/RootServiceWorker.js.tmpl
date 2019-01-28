@@ -1,23 +1,26 @@
 /**
- * Service worker for root scope
- * @file RootServiceWorker
+ * @file ServiceWorker
  */
 'use strict'
 
-const Urls = require('@self/conf/Urls')
-const SrcSets = require('@self/conf/SrcSets')
-const {parse: parseUrl} = require('url')
-const {AppConsts} = require('../constants')
-const {appCache, cachingFetch} = require('the-sw-util')
+import conf from './deps/conf'
+import { parse as parseUrl } from 'url'
+import AppConsts from '../constants/AppConsts'
+import { appCache, cachingFetch } from 'the-sw-util'
+
+const { SrcSets, Urls } = conf
 
 const pathsToCache = [
   ...SrcSets.jsSet,
   ...SrcSets.cssSet,
   Urls.ICON_URL,
 ]
-const urlsToCache = []
+const urlsToCache = [
+]
+
 const patternsToCache = [
-  /^\/webfonts\//
+  /^\/webfonts\//,
+  /^\/images\//,
 ]
 
 self.addEventListener('install', (event) => {
@@ -28,8 +31,8 @@ self.addEventListener('install', (event) => {
 })
 
 self.addEventListener('fetch', (event) => {
-  const {url} = event.request
-  const {pathname, host} = parseUrl(url)
+  const { url } = event.request
+  const { pathname, host } = parseUrl(url)
   const isOwn = host === location.host
   const shouldCache = urlsToCache.includes(url) ||
     (isOwn && pathsToCache.includes(pathname) || patternsToCache.some((pattern) => pattern.test(pathname)))

@@ -1,20 +1,18 @@
 /**
  * Bud file for test cases.
  */
-
 'use strict'
 
-const {test} = require('the-templates')
+const { test } = require('the-templates')
 
 module.exports = test.dir({
+  cjs: true,
+  dest: __dirname,
   src: [
-    `${__dirname}/../server`,
     `${__dirname}/../controllers`,
     `${__dirname}/../db`,
-    `${__dirname}/../endpoints`
+    `${__dirname}/../server`
   ],
-  dest: __dirname,
-  cjs: true
 })
 
 if (!module.parent) {

@@ -15,6 +15,11 @@ class InputSceneBase extends Scene {}
 
 /** @lends InputScene */
 class InputScene extends InputSceneBase {
+  setEntryErrors (e) {
+    console.error('entry error', e)
+    this.setEntryErrors.set(e)
+  }
+
   setEntryFromEntity (entity) {
     const values = clone(entity || {}, {
       without: this.constructor.entitySkipFields,

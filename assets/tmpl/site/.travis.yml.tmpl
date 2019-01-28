@@ -1,19 +1,20 @@
 language: node_js
-sudo: required
 services:
 - docker
+- mongo
 node_js:
 - '10.0'
 before_install:
-- npm install npm@latest pm2 pon jsdoc -g
+- echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+- npm install publish-if-needed npm@latest pm2 pon jsdoc -g
 install:
 - npm install
 script:
-- pon c b
+- pon prepare
+- pon build
+after_success:
+- publish-if-needed
 env:
-- THE_DEMO_SITE_MASTER_PASSWORD=~~~~package_name~~~~
-deploy:
-  provider: npm
-  email: ~~~~author_email~~~~
-  api_key:
-    secure: r4uj3GiXEmafuG2EFVASr93SWaPaoM/DGMmGWVdEjzv2KAMERXpj56lhn2xUqELVtmRMkrDG7/YXw7ThDo95HO/Y2JB6Q2wzS6+EIygb1fyYkhwIhiSNOXfEOhACFeWef+HGxO8ip+3yPw35vi/xRwrfSAasYWY3oya5e5gZvd5vtoIfxbzfCSgf0jz00stU87Ckce1tR+aAr1nH6f0ulKXwJaMSfEO7Q8UJINNyqwhw43H/hPQ0jVFN1AA8Dpx/7Vci3YtFEnrMqNX9twoLRx13OitSAKF0K/7C0XOAby5u1TV0W8aVw9uj/hHrcLA38wEt/2ZtcmkMveQVD9yJsG07wwEmwBsTpaP4d2E0BFXmeqKnWV46aeSBssBqVsYlX/qzFzMLl3Uk5TSDyhFy9buNG5JXuo6WJaCQnW+thLasy8pcx9tJ3lXfmo3D0/akBcLJJoBfqPgoYwKzMlZPk0yoM4qfj32dt+/C56vozdMJZM2ddgLvIp8tZJW6rLtFYDFy97CvrVrw901PZ+kHaYXojIFnoobnQQQWZBSrkBtzW5Ps96deRthxNkbv9OzHyV6Id8JFfyiGVKLJFlD5GZh7tQMhSza26uND6duPsO0pTVsIntWYUSfywBMzyVU7pCUycT33aVOX0RMfSs1X/cM06NV2PPgdK63j8+1tjlE=
+  global:
+  - secure: gNYS1h6KidtzKjyXWyKdW0cGX4lyvBGWyLg8YznalzFSj1o/kTdNQ/ghu0Lg2BfKYYCchvs6eXqlVMy/lJbk0st5SqLSgaHAGsAlxet1CBR2PgOy1t3zspekxyYtqwgZj/wOWqH8PbFodtuBnTVVHypwViGVo3BR5/kPCTbXNJOxSC7pcd2j/+2F0rTQ2ABoBh1XHfinRFF797+lV119RJTfMQ+XGxGVdooXl9pmVqqsTQpSQ27dBP2dY41iI0g4BKMnR4MYo90pkZV/TyhPMfvWBS6yZLWRvuGZiIBRxjwgvVInXmABN8DbP6jR28ycjb0h5UO/z/jmTUrzZDHdqZZ19VBjytlTBFNwJQyYcXhEyQWEQ/GyBEM2QHwKXEI43SacJdxVtwjSfKDtSDewO5NpgIm3BwCpZkaLWND30rRs1gW7x/qpLzRhiHl8bFS8z0eV0h9rA9omYeuwGbd0Ls9o1Z8n0dYIaObrYBFRy01yHX7nZ/vltEleC3NtvXFRWWdn51T3V4mwVEK7ttnQ7sxUBL/TDZmrZtFmlcgWdD0KGBZCBfnCs7Z08CE7h27cx1hYwTc4M48kIBmQecTLK+aGd7TRPFQGxOTgsTrL/sC4dg0Tek7Mp/FDMxvSDQGf25sxsWh+U3gTvJ8bDBZDzc/LCoDzc19/hYDs0ajIjY4=
+  - secure: akbUT2UD7+RyxPkqxCrzQKa6UDuU7rK56PsIrtIoTsV39lHyRd4fjq8ftngkFu8oynTd5wQAydgbi+hTNRUtyWLrbwfIdIk+L2gEf0nVYGYdfBxVBwx3jCHCamQjTZqzp/BwnDR+wAHBSNCAS8klYz7f4wespol6RWLPG/WVl8oYNO+DbFqcx+wscmLo/H/15cuy07M5FGl8OM0nPdN/YLSUpsF/VmVE84HCgmb3Z5zY4ErWA8oiBXXNflsOiXYIkyX0g7KrwYyhH6rr2ajPNsR2KkBPCZjoZ3YMA2/zkMZeo6zvwZ9vYMTCM18RUMwn6T5CEhuNKGb5Eg9e69gE1ylHL4pd9Jf0rcuEdUBquchuQIBOy7QTe3SB8co0zRZ4VVqNROXh9sZxAPC3ZzMLHS+nVe5Gv9D7QC2iCGw1o225CPZHBIaK02yEJWf3W4CQvBDILHCt6HZKhy7oOzfSNrDLpLhqGRndALFUArFQPaFaXG4CVms4LniVKZcE9UX1vFxgI437XHI0I1pjPgSQGLN2aZLK4KZFtQ5e8nLqoOWfVfMbsABma2RdQLiIcriJZwv7tT/lKdA3evwwgp8Q3EgKOKIFuvsJ7qKaRsZgQ0k3B1+N9MB9ja5dsscDydZoR+BOirs0Z+cY8z50tty0d2CZFNSPgFzUjLceYwEdtps=

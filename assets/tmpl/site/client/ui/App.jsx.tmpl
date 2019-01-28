@@ -5,12 +5,10 @@
 
 import React from 'react'
 import {
-  catching,
+  cliental,
   cycled,
   handling,
-  historical,
   localized,
-  provided,
   stateful,
   titled,
 } from 'the-component-mixins'
@@ -21,32 +19,25 @@ import {
 import { locales } from '@self/conf'
 import { Dialogs, Footer, Header, Toasts } from './layouts'
 import Routes from './Routes'
-import { ofUser } from './wrappers'
 
-@handling
-@catching
+@stateful.root
 @stateful(
   (state) => ({
     busy: state['app.busy'],
     pathname: state['app.pathname'],
   }),
   ({
-     accountScene,
      appScene,
-     verifyNeedScene,
    }) => ({
     onMount: async () => {
-      await accountScene.doSync()
-      await verifyNeedScene.doSync({delay: 3 * 1000})
     },
   }),
-  {pure: false}
 )
-@ofUser
-@provided
-@historical.root
+@handling
+@cliental.root
 @localized.with(locales)
-@titled.app(({l}) => l('app.APP_NAME'))
+@cycled
+@titled.app(({ l }) => l('app.APP_NAME'))
 class App extends React.Component {
   render () {
     const { busy } = this.props

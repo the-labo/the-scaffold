@@ -5,40 +5,14 @@
  */
 'use strict'
 
-const _d = (m) => (m && 'default' in m) ? m.default : m
-
-const AccountCtrl_ = require('./AccountCtrl')
-const AdminUserCtrl_ = require('./admin/AdminUserCtrl')
-const AdminCtrl_ = require('./AdminCtrl')
 const AppCtrl_ = require('./AppCtrl')
 const Ctrl_ = require('./Ctrl')
-const ListenCtrl_ = require('./ListenCtrl')
-const QuitCtrl_ = require('./QuitCtrl')
-const RecoverCtrl_ = require('./RecoverCtrl')
-const SignCtrl_ = require('./SignCtrl')
-const VerifyCtrl_ = require('./VerifyCtrl')
 
 // `module.exports` overrides these `exports.*`, but still needs them for lebab (https://github.com/lebab/lebab)
-exports.AccountCtrl = _d(AccountCtrl_)
-exports.AdminUserCtrl = _d(AdminUserCtrl_)
-exports.AdminCtrl = _d(AdminCtrl_)
-exports.AppCtrl = _d(AppCtrl_)
-exports.Ctrl = _d(Ctrl_)
-exports.ListenCtrl = _d(ListenCtrl_)
-exports.QuitCtrl = _d(QuitCtrl_)
-exports.RecoverCtrl = _d(RecoverCtrl_)
-exports.SignCtrl = _d(SignCtrl_)
-exports.VerifyCtrl = _d(VerifyCtrl_)
+exports.AppCtrl = AppCtrl_
+exports.Ctrl = Ctrl_
 
-module.exports = Object.freeze({
-  AccountCtrl: _d(AccountCtrl_),
-  AdminUserCtrl: _d(AdminUserCtrl_),
-  AdminCtrl: _d(AdminCtrl_),
-  AppCtrl: _d(AppCtrl_),
-  Ctrl: _d(Ctrl_),
-  ListenCtrl: _d(ListenCtrl_),
-  QuitCtrl: _d(QuitCtrl_),
-  RecoverCtrl: _d(RecoverCtrl_),
-  SignCtrl: _d(SignCtrl_),
-  VerifyCtrl: _d(VerifyCtrl_),
-})
+module.exports = {
+  AppCtrl: AppCtrl_,
+  Ctrl: Ctrl_,
+}

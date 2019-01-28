@@ -7,36 +7,21 @@ http {
 
   server {
     listen ${HTTP_PORT};
-    listen ${HTTPS_PORT} ssl http2;
 
     gzip on;
     gzip_vary on;
-    gzip_types text/plain text/css text/html application/json application/javascript;
-
-    sendfile  on;
-    sendfile_max_chunk  1m;
-    tcp_nopush on;
-    tcp_nodelay on;
+    gzip_types text/plain text/css application/json application/javascript;
 
     location / {
-      if (-f ${STATIC_DIR}/status/maintenance) {
-         return 503;
-      }
       proxy_pass http://${HOST_IP}:${APP_PORT}/;
       proxy_http_version 1.1;
       proxy_set_header Upgrade $http_upgrade;
       proxy_set_header Connection "upgrade";
-      proxy_read_timeout 24h;
       proxy_set_header Host $host;
       proxy_set_header X-Real-IP $remote_addr;
       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-      client_max_body_size 1G;
     }
-    location /server-error {
-      try_files $uri $uri/index.html $uri.html;
-      root ${STATIC_DIR};
-    }
-    location ~* ^/.+\.(html|htm|map|jpg|jpeg|png|ico|svg) {
+    location ~* ^/.+\.(html|htm|map|jpg|jpeg|png|ico|svg|qt|mp4|webm|mov) {
       root ${STATIC_DIR};
     }
     location ~* ^/.+\.(js|mjs|css) {
@@ -50,6 +35,7 @@ http {
       root ${STATIC_DIR};
       add_header Cache-Control "public";
     }
+
     error_page 502 /server-error/server-error.html;
     error_page 503 /server-error/under-maintenance.html;
   }

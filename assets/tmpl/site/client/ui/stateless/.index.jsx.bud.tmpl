@@ -1,12 +1,12 @@
 'use strict'
 
-const {dir} = require('the-templates')
+const { dir } = require('the-templates')
 
 module.exports = dir.recursive({
+  description: 'Fragment components',
   dirname: __dirname,
-  name: 'stateless',
-  description: 'Stateless components',
   ext: '.jsx',
+  name: 'stateless',
 })
 
 if (!module.parent) {
